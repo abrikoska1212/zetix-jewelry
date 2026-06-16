@@ -11,8 +11,8 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="flex flex-col items-center text-center"
-      style={{ padding: "160px 80px" }}
+      className="flex flex-col items-center"
+      style={{ padding: "120px 80px 80px" }}
     >
       {/* Лейбл */}
       <motion.div
@@ -36,7 +36,7 @@ export default function Contact() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.1 }}
-        className="mb-20 max-w-[600px] text-[40px] leading-[1.1] font-[400] italic md:text-[56px]"
+        className="mb-6 max-w-[500px] text-center text-[40px] leading-[1.1] font-[400] italic md:text-[56px]"
         style={{ fontFamily: "var(--font-display)" }}
       >
         Есть вопрос?
@@ -44,87 +44,118 @@ export default function Contact() {
         Мы ответим.
       </motion.h2>
 
-      {/* Две колонки — без рамок, через пространство */}
+      {/* Тонкая поэтическая строка */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.8, delay: 0.15 }}
+        className="mb-20 max-w-[400px] text-center text-[14px] font-[300] text-text-muted"
+        style={{ fontFamily: "var(--font-body)" }}
+      >
+        Расскажем об украшении, подберём размер, ответим на любой вопрос.
+      </motion.p>
+
+      {/* Три колонки информации */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="mb-20 grid w-full max-w-[800px] grid-cols-1 gap-20 md:grid-cols-2"
+        className="mb-20 grid w-full max-w-[900px] grid-cols-1 gap-16 md:grid-cols-3"
       >
-        {/* Левая — адрес */}
+        {/* Адрес */}
         <div className="flex flex-col items-center text-center">
+          <div className="mb-5 h-[1px] w-8 bg-gold/30" />
           <span
-            className="mb-6 text-[11px] font-[400] uppercase tracking-[0.2em] text-gold"
+            className="mb-4 text-[10px] font-[400] uppercase tracking-[0.25em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Шоурум
           </span>
           <p
-            className="text-[16px] font-[300] leading-[2] text-text"
+            className="text-[15px] font-[300] leading-[1.9] text-text"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Москва,
             <br />
             ул. Кузнецкий Мост, 7
           </p>
-          <div className="my-5 h-[1px] w-8 bg-gold/20" />
-          <p
-            className="text-[13px] font-[300] text-text-muted"
+        </div>
+
+        {/* График */}
+        <div className="flex flex-col items-center text-center">
+          <div className="mb-5 h-[1px] w-8 bg-gold/30" />
+          <span
+            className="mb-4 text-[10px] font-[400] uppercase tracking-[0.25em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Пн-Сб 11:00–20:00
+            Время работы
+          </span>
+          <p
+            className="text-[15px] font-[300] leading-[1.9] text-text"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Пн-Сб
+            <br />
+            11:00–20:00
           </p>
         </div>
 
-        {/* Правая — соцсети */}
+        {/* Соцсети */}
         <div className="flex flex-col items-center text-center">
+          <div className="mb-5 h-[1px] w-8 bg-gold/30" />
           <span
-            className="mb-6 text-[11px] font-[400] uppercase tracking-[0.2em] text-gold"
+            className="mb-4 text-[10px] font-[400] uppercase tracking-[0.25em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Социальные сети
+            Онлайн
           </span>
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-3">
             <a
               href="#"
-              className="group/link text-[16px] font-[300] text-text transition-colors duration-300 hover:text-gold"
+              className="text-[15px] font-[300] text-text transition-colors duration-300 hover:text-gold"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Telegram
-              <span className="ml-2 text-text-muted/40 transition-colors duration-300 group-hover/link:text-gold/60">@zetixx</span>
+              Telegram @zetixx
             </a>
-            <div className="h-[1px] w-8 bg-gold/20" />
             <a
               href="#"
-              className="group/link text-[16px] font-[300] text-text transition-colors duration-300 hover:text-gold"
+              className="text-[15px] font-[300] text-text transition-colors duration-300 hover:text-gold"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Instagram
-              <span className="ml-2 text-text-muted/40 transition-colors duration-300 group-hover/link:text-gold/60">@zetixjewelry</span>
+              Instagram @zetixjewelry
             </a>
           </div>
         </div>
       </motion.div>
 
-      {/* CTA — крупная кнопка */}
+      {/* CTA — кнопка */}
       <motion.a
         href="#"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.35 }}
-        className="group relative flex w-full max-w-[800px] items-center justify-between overflow-hidden py-10 text-[12px] font-[400] uppercase tracking-[0.25em] text-gold transition-all duration-500 hover:text-bg"
-        style={{
-          fontFamily: "var(--font-body)",
-        }}
+        className="group relative mb-20 flex w-full max-w-[500px] items-center justify-center gap-4 overflow-hidden border border-border-gold bg-transparent py-5 text-[12px] font-[400] uppercase tracking-[0.2em] text-gold transition-all duration-500 hover:border-gold hover:bg-gold hover:text-bg"
+        style={{ fontFamily: "var(--font-body)" }}
       >
-        {/* Фон при hover */}
-        <div className="absolute inset-0 bg-gold translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0" />
-
         <span className="relative z-[1]">Написать в Telegram</span>
-        <span className="relative z-[1] text-[18px] transition-transform duration-500 group-hover:translate-x-3">
-          →
-        </span>
+        <span className="relative z-[1] text-[16px] transition-transform duration-500 group-hover:translate-x-2">→</span>
       </motion.a>
+
+      {/* Декоративный элемент снизу — координаты */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        className="flex flex-col items-center gap-3"
+      >
+        <div className="h-[1px] w-[1px] bg-gold/40" />
+        <span
+          className="text-[9px] font-[300] uppercase tracking-[0.4em] text-text-muted/40"
+          style={{ fontFamily: "var(--font-body)" }}
+        >
+          55.7618° N, 37.6225° E
+        </span>
+      </motion.div>
     </section>
   );
 }

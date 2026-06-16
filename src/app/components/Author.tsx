@@ -148,19 +148,19 @@ export default function Author() {
               <div className="absolute top-0 left-0 h-[1px] w-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
 
               <span
-                className="mb-8 block text-[32px] text-gold/70 transition-colors duration-500 group-hover:text-gold"
+                className="mb-8 block text-center text-[32px] text-gold/70 transition-colors duration-500 group-hover:text-gold"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {skill.icon}
               </span>
               <h4
-                className="mb-5 text-[22px] font-[400] text-text"
+                className="mb-5 text-center text-[22px] font-[400] text-text"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {skill.title}
               </h4>
               <p
-                className="text-[15px] font-[300] leading-[1.9] text-text-muted"
+                className="text-center text-[15px] font-[300] leading-[1.9] text-text-muted"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {skill.desc}

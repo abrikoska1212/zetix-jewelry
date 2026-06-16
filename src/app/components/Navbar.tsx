@@ -48,7 +48,7 @@ export default function Navbar() {
       <div className="relative z-10 flex items-center gap-10">
         {[
           { label: "Коллекции", href: "#collections" },
-          { label: "Автор", href: "#author" },
+          { label: "Автор", href: "/author" },
           { label: "Об украшениях", href: "#about" },
           { label: "Контакт", href: "#contact" },
         ].map((item) => (

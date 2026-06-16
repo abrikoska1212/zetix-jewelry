@@ -144,92 +144,103 @@ export default function Collections() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[1000] grid bg-bg"
-            style={{ gridTemplateColumns: "1fr 1fr" }}
+            className="fixed inset-0 z-[1000]"
+            style={{ background: "#0a0906" }}
           >
-            <button
-              onClick={() => setActive(null)}
-              className="absolute top-10 right-10 z-[1001] text-[11px] font-[400] uppercase tracking-[0.15em] text-text-muted transition-colors duration-300 hover:text-gold"
-              style={{ fontFamily: "var(--font-body)", background: "none", border: "none" }}
-              data-cursor-pointer
-            >
-              ✕ закрыть
-            </button>
-
-            <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "-100%", opacity: 0 }}
-              transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-              className="flex items-center justify-center border-r border-border"
-              style={{ padding: 80 }}
-            >
-              <img
-                src={active.image}
-                alt={active.name}
-                className="max-h-[70vh] w-full object-contain"
-                style={{ filter: "drop-shadow(0 0 80px rgba(201, 168, 76, 0.12))" }}
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1], delay: 0.1 }}
-              className="flex flex-col justify-center gap-6"
-              style={{ padding: 80 }}
-            >
-              <span
-                className="text-[11px] font-[400] uppercase tracking-[0.2em] text-gold"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                Коллекция
-              </span>
-
-              <h2
-                className="text-[56px] leading-[1.1] font-[400] italic"
-                style={{ fontFamily: "var(--font-display)", color: "var(--color-text)", margin: 0 }}
-              >
-                {active.name}
-              </h2>
-
-              <p
-                className="max-w-[400px] text-[15px] font-[300] leading-relaxed text-text-muted"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                {active.description}
-              </p>
-
-              <div
-                className="my-4 flex flex-col gap-3 border-t border-b py-8"
-                style={{ borderColor: "var(--color-border)" }}
-              >
-                {active.items.map((item) => (
-                  <div
-                    key={item}
-                    className="border-l-[1px] pl-4 text-[14px] font-[300] text-text-muted"
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      borderLeftColor: "var(--color-border-gold)",
-                    }}
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-
+            <div className="grid h-screen" style={{ gridTemplateColumns: "1fr 1fr" }}>
+              {/* Кнопка закрыть */}
               <button
-                className="inline-flex w-fit items-center gap-3 border-none bg-transparent pb-1 text-[11px] font-[400] uppercase tracking-[0.2em] text-gold transition-all duration-[400ms] hover:gap-5 hover:text-gold-light"
-                style={{
-                  fontFamily: "var(--font-body)",
-                  borderBottom: "1px solid var(--color-gold)",
-                }}
+                onClick={() => setActive(null)}
+                className="absolute top-10 right-10 z-[1001] text-[11px] font-[400] uppercase tracking-[0.15em] text-text-muted transition-colors duration-300 hover:text-gold"
+                style={{ fontFamily: "var(--font-body)", background: "none", border: "none" }}
               >
-                Смотреть коллекцию
-                <span>→</span>
+                ✕ закрыть
               </button>
-            </motion.div>
+
+              {/* Левая — фото */}
+              <motion.div
+                initial={{ x: "-100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: "-100%", opacity: 0 }}
+                transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] as const }}
+                className="relative flex items-center justify-center"
+                style={{ padding: 80, borderRight: "1px solid #1a1a1a" }}
+              >
+                <img
+                  src={active.image}
+                  alt={active.name}
+                  className="max-h-[70vh] w-full object-contain"
+                  style={{ filter: "drop-shadow(0 0 80px rgba(201, 168, 76, 0.12))" }}
+                />
+              </motion.div>
+
+              {/* Правая — информация */}
+              <motion.div
+                initial={{ x: "100%", opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: "100%", opacity: 0 }}
+                transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] as const, delay: 0.1 }}
+                className="flex flex-col justify-center"
+                style={{ padding: "80px 80px 80px 60px" }}
+              >
+                {/* Лейбл */}
+                <p
+                  className="mb-8 text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Коллекция
+                </p>
+
+                {/* Название */}
+                <h2
+                  className="mb-1 text-[64px] leading-[1] font-[400] italic"
+                  style={{ fontFamily: "var(--font-display)", color: "#fff" }}
+                >
+                  {active.name}
+                </h2>
+                <p
+                  className="mb-4 text-[14px] font-[400] text-gold/60"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  {active.count}
+                </p>
+
+                {/* Золотой разделитель */}
+                <div className="mb-10 h-[1px] w-16 bg-gradient-to-r from-gold to-transparent" />
+
+                {/* Описание */}
+                <p
+                  className="mb-12 max-w-[400px] text-[16px] font-[300] leading-[1.9] text-text-muted"
+                  style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }}
+                >
+                  {active.description}
+                </p>
+
+                {/* Список изделий */}
+                <div className="flex flex-col gap-4">
+                  {active.items.map((item, i) => (
+                    <div
+                      key={item}
+                      className="flex items-baseline gap-5 border-b pb-4"
+                      style={{ borderColor: "#1a1a1a" }}
+                    >
+                      <span
+                        className="min-w-5 text-[10px] font-[400] uppercase tracking-[0.2em] text-gold"
+                        style={{ fontFamily: "var(--font-body)" }}
+                      >
+                        0{i + 1}
+                      </span>
+                      <span
+                        className="text-[15px] font-[300] text-text"
+                        style={{ fontFamily: "var(--font-body)" }}
+                      >
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

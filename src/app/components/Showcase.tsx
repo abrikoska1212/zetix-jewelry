@@ -268,16 +268,6 @@ export default function Showcase() {
                     </div>
                   ))}
                 </div>
-
-                {/* Кнопка */}
-                <a
-                  className="group/btn flex w-fit items-center gap-4 border-b border-gold/30 pb-2 text-[11px] font-[400] uppercase tracking-[0.2em] text-gold transition-all duration-400 hover:border-gold hover:gap-6"
-                  style={{ fontFamily: "var(--font-body)" }}
-                  href="#"
-                >
-                  <span>Узнать стоимость</span>
-                  <span className="transition-transform duration-400 group-hover/btn:translate-x-1">→</span>
-                </a>
               </motion.div>
             </div>
           </motion.div>

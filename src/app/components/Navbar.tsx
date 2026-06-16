@@ -21,24 +21,34 @@ export default function Navbar() {
         borderBottom: "1px solid rgba(139, 115, 85, 0.12)",
       }}
     >
-      <Link href="/" className="relative z-10">
+      <Link href="/" className="relative z-10 flex items-center gap-4">
+        <div className="flex flex-col items-start">
+          <span
+            className="text-[24px] font-[400] italic text-gold"
+            style={{ fontFamily: "var(--font-display)", letterSpacing: "0.08em" }}
+          >
+            Zetix
+          </span>
+          <span
+            className="text-[8px] font-[300] uppercase text-text-muted"
+            style={{ fontFamily: "var(--font-body)", letterSpacing: "0.3em", marginTop: 2 }}
+          >
+            Jewelry
+          </span>
+        </div>
+        <div className="ml-2 hidden h-[28px] w-[1px] bg-border-gold/20 md:block" />
         <span
-          className="block text-[22px] font-[400] italic text-gold"
-          style={{ fontFamily: "var(--font-display)", letterSpacing: "0.08em" }}
+          className="hidden text-[10px] font-[300] uppercase tracking-[0.15em] text-text-muted/50 md:block"
+          style={{ fontFamily: "var(--font-body)" }}
         >
-          Zetix
-        </span>
-        <span
-          className="block text-[8px] font-[300] uppercase text-text-muted"
-          style={{ fontFamily: "var(--font-body)", letterSpacing: "0.3em", marginTop: 2 }}
-        >
-          Jewelry
+          Ручная работа
         </span>
       </Link>
 
       <div className="relative z-10 flex items-center gap-10">
         {[
           { label: "Коллекции", href: "#collections" },
+          { label: "Автор", href: "#author" },
           { label: "Об украшениях", href: "#about" },
           { label: "Контакт", href: "#contact" },
         ].map((item) => (

@@ -6,6 +6,7 @@ import CustomCursor from "./components/CustomCursor";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Collections from "./components/Collections";
+import Author from "./components/Author";
 import FeaturedPiece from "./components/FeaturedPiece";
 import About from "./components/About";
 import Showcase from "./components/Showcase";
@@ -36,6 +37,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Collections />
+        <Author />
         <FeaturedPiece />
         <About />
         <Showcase />

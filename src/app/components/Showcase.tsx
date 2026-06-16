@@ -142,17 +142,11 @@ export default function Showcase() {
                   {item.type}
                 </p>
                 <h3
-                  className="mb-3 text-[18px] font-[400] italic text-text transition-colors duration-300 group-hover:text-gold"
+                  className="text-[18px] font-[400] italic text-text transition-colors duration-300 group-hover:text-gold"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {item.name}
                 </h3>
-                <span
-                  className="inline-block border-b border-gold/30 pb-0.5 text-[10px] font-[400] uppercase tracking-[0.2em] text-gold transition-all duration-300 hover:border-gold"
-                  style={{ fontFamily: "var(--font-body)" }}
-                >
-                  Узнать стоимость →
-                </span>
               </div>
             </motion.div>
           ))}

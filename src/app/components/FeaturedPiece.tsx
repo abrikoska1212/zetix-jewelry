@@ -67,17 +67,6 @@ export default function FeaturedPiece() {
 
           <div className="mb-8 h-[1px] w-full bg-border-gold/40" />
 
-          <a
-            href="#contact"
-            className="group flex items-center gap-4 text-[13px] font-[300] text-text-muted transition-colors duration-300 hover:text-gold"
-            style={{ fontFamily: "var(--font-body)" }}
-            data-cursor-pointer
-          >
-            <span>Узнать стоимость</span>
-            <span className="text-gold transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
-          </a>
         </motion.div>
       </div>
     </section>

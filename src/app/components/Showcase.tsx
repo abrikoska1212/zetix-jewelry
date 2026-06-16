@@ -21,10 +21,10 @@ const items: Product[] = [
     id: "01",
     name: "«Ночь»",
     type: "Кольцо",
-    subtitle: "Ночная тишина золота",
-    material: "Золото",
+    subtitle: "Тишина которая говорит громче слов",
+    material: "Жёлтое золото 585°",
     stone: "Чёрный бриллиант 0.5 кт",
-    craft: "Ручная гравировка",
+    craft: "Ручная гравировка в ателье",
     image: "/images/ring.jpg",
     collection: "NOIR",
   },
@@ -32,10 +32,10 @@ const items: Product[] = [
     id: "02",
     name: "«Река»",
     type: "Браслет",
-    subtitle: "Течение серебра",
-    material: "Серебро",
-    stone: "Без камней",
-    craft: "Полировка вручную",
+    subtitle: "Серебро которое течёт как вода",
+    material: "Серебро 925°",
+    stone: "Закрытая инкрустация",
+    craft: "Полировка зеркальной кистью",
     image: "/images/brace.jpg",
     collection: "LUMIÈRE",
   },
@@ -43,10 +43,10 @@ const items: Product[] = [
     id: "03",
     name: "«Звезда»",
     type: "Серьги",
-    subtitle: "Свет далёких звёзд",
-    material: "Золото",
-    stone: "Бриллианты 0.8 кт",
-    craft: "Инкрустация",
+    subtitle: "Свет который не гаснет",
+    material: "Белое золото 585°",
+    stone: "Бриллианты 0.8 кт, VS1",
+    craft: "Бесшовная инкрустация",
     image: "/images/earrings.jpg",
     collection: "ÉTERNEL",
   },
@@ -54,10 +54,10 @@ const items: Product[] = [
     id: "04",
     name: "«Луна»",
     type: "Кулон",
-    subtitle: "Лунный свет на шее",
-    material: "Серебро",
-    stone: "Лунный камень",
-    craft: "Ручная огранка",
+    subtitle: "Мягкий свет для тёмных вечеров",
+    material: "Серебро 925°",
+    stone: "Натуральный лунный камень",
+    craft: "Ручная огранка и полировка",
     image: "/images/pendant.jpg",
     collection: "NOIR",
   },
@@ -85,16 +85,6 @@ export default function Showcase() {
           transition={{ duration: 0.8 }}
           className="mb-16 flex flex-col items-center"
         >
-          <div className="mb-6 flex items-center gap-6">
-            <div className="h-[1px] w-12 bg-gold/30" />
-            <span
-              className="text-[11px] font-[400] uppercase tracking-[0.3em] text-gold"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Выбрать
-            </span>
-            <div className="h-[1px] w-12 bg-gold/30" />
-          </div>
           <h2
             className="text-[36px] font-[400] italic text-text md:text-[48px]"
             style={{ fontFamily: "var(--font-display)" }}

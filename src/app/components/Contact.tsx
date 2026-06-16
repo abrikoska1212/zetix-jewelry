@@ -112,15 +112,16 @@ export default function Contact() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.35 }}
-        className="group flex w-full max-w-[800px] items-center justify-between py-8 text-[12px] font-[400] uppercase tracking-[0.25em] text-gold transition-all duration-500 hover:tracking-[0.35em]"
+        className="group relative flex w-full max-w-[800px] items-center justify-between overflow-hidden py-10 text-[12px] font-[400] uppercase tracking-[0.25em] text-gold transition-all duration-500 hover:text-bg"
         style={{
           fontFamily: "var(--font-body)",
-          borderTop: "1px solid var(--color-border-gold)",
-          borderBottom: "1px solid var(--color-border-gold)",
         }}
       >
-        <span>Написать в Telegram</span>
-        <span className="text-[18px] transition-transform duration-500 group-hover:translate-x-3">
+        {/* Фон при hover */}
+        <div className="absolute inset-0 bg-gold translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0" />
+
+        <span className="relative z-[1]">Написать в Telegram</span>
+        <span className="relative z-[1] text-[18px] transition-transform duration-500 group-hover:translate-x-3">
           →
         </span>
       </motion.a>

@@ -53,14 +53,16 @@ export default function FeaturedPiece() {
           </h2>
 
           <p
-            className="mb-8 text-[15px] font-[300] leading-relaxed text-text-muted"
+            className="mb-8 max-w-[320px] text-[15px] font-[300] leading-[1.8] text-text-muted"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Жёлтое золото 585°
+            Жёлтое золото 585° пробы.
             <br />
-            Бриллиант 0.3 карата
+            Бриллиант 0.3 карата класса VS.
             <br />
-            Ручная гравировка
+            Гравировка выполнена вручную
+            <br />
+            в нашем ателье.
           </p>
 
           <div className="mb-8 h-[1px] w-full bg-border-gold/40" />

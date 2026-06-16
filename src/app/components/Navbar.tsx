@@ -2,14 +2,25 @@
 
 import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const { scrollY } = useScroll();
+  const pathname = usePathname();
+  const isAuthorPage = pathname === "/author";
+
   const bgOpacity = useTransform(scrollY, [0, 120], [0, 0.92]);
   const blurAmount = useTransform(scrollY, [0, 120], [0, 24]);
 
   const backgroundColor = useMotionTemplate`rgba(10, 9, 6, ${bgOpacity})`;
   const backdropFilter = useMotionTemplate`blur(${blurAmount}px)`;
+
+  const navItems = [
+    { label: "Автор", href: "/author" },
+    { label: "Коллекции", href: isAuthorPage ? "/#collections" : "#collections" },
+    { label: "Об украшениях", href: isAuthorPage ? "/#about" : "#about" },
+    { label: "Контакт", href: isAuthorPage ? "/#contact" : "#contact" },
+  ];
 
   return (
     <motion.nav
@@ -46,12 +57,7 @@ export default function Navbar() {
       </Link>
 
       <div className="relative z-10 flex items-center gap-10">
-        {[
-          { label: "Коллекции", href: "#collections" },
-          { label: "Автор", href: "/author" },
-          { label: "Об украшениях", href: "#about" },
-          { label: "Контакт", href: "#contact" },
-        ].map((item) => (
+        {navItems.map((item) => (
           <Link
             key={item.label}
             href={item.href}

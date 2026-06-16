@@ -137,3 +137,26 @@ body::before {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.7; }
 }
+
+/* Живой фон — еле заметное движение градиента */
+@keyframes ambientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 80% 60% at 20% 30%, rgba(26, 20, 8, 0.4) 0%, transparent 50%),
+              radial-gradient(ellipse 60% 80% at 80% 70%, rgba(18, 14, 4, 0.3) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 50% at 50% 50%, rgba(201, 168, 76, 0.015) 0%, transparent 60%);
+  background-size: 200% 200%;
+  animation: ambientShift 20s ease-in-out infinite;
+}

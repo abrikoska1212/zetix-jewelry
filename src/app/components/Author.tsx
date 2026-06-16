@@ -36,20 +36,32 @@ export default function Author() {
 
   return (
     <section id="author" ref={ref}>
-      {/* Приветствие */}
+      {/* Герой — приветствие */}
       <div
-        className="px-10 md:px-16"
-        style={{ paddingTop: 140, paddingBottom: 160 }}
+        className="relative px-10 md:px-16"
+        style={{
+          paddingTop: 160,
+          paddingBottom: 200,
+          background: "radial-gradient(ellipse 50% 60% at 30% 40%, rgba(26, 20, 8, 0.5) 0%, transparent 60%), var(--color-bg)",
+        }}
       >
+        {/* Золотая точка-акцент */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 1.2 }}
+          className="absolute left-16 top-20 h-[6px] w-[6px] rounded-full bg-gold md:left-24"
+        />
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1 }}
-          className="mb-10 flex items-center gap-6"
+          className="mb-12 flex items-center gap-6"
         >
-          <div className="h-[1px] w-8 bg-gold/30" />
+          <div className="h-[1px] w-12 bg-gold/30" />
           <span
-            className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
+            className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Обо мне
@@ -60,7 +72,7 @@ export default function Author() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.1 }}
-          className="mb-10 text-[48px] leading-[1.1] font-[400] italic md:text-[72px]"
+          className="mb-12 max-w-[700px] text-[56px] leading-[1.05] font-[400] italic md:text-[88px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Привет, я
@@ -72,25 +84,46 @@ export default function Author() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.2 }}
-          className="max-w-[600px] text-[16px] font-[300] leading-[2] text-text-muted"
+          className="max-w-[520px] text-[17px] font-[300] leading-[2.1] text-text-muted"
           style={{ fontFamily: "var(--font-body)" }}
         >
           Разработчик, который превращает сложные вещи в простые и
           красивые продукты. «Зетикс» — мой личный проект, созданный с
           вниманием к каждой детали.
         </motion.p>
+
+        {/* Декоративная линия снизу */}
+        <div
+          className="absolute bottom-0 left-1/2 -translate-x-1/2"
+          style={{
+            width: 1,
+            height: 80,
+            background: "linear-gradient(to top, var(--color-border-gold), transparent)",
+          }}
+        />
       </div>
 
       {/* Чем я занимаюсь */}
       <div
         className="px-10 md:px-16"
-        style={{ paddingBottom: 160 }}
+        style={{ paddingTop: 120, paddingBottom: 180 }}
       >
+        <div className="mb-16 flex items-center gap-6">
+          <div className="h-[1px] w-12 bg-gold/30" />
+          <span
+            className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Навыки
+          </span>
+          <div className="h-[1px] w-12 bg-gold/30" />
+        </div>
+
         <motion.h3
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mb-16 text-[32px] font-[400] italic text-text"
+          className="mb-20 text-[42px] font-[400] italic text-text md:text-[52px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Чем я занимаюсь
@@ -103,26 +136,29 @@ export default function Author() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.4 + i * 0.15 }}
-              className="group p-10 transition-all duration-500"
+              className="group relative p-12 transition-all duration-600"
               style={{
-                background: "rgba(17, 16, 9, 0.5)",
-                border: "1px solid rgba(42, 37, 32, 0.6)",
+                background: "linear-gradient(135deg, rgba(17, 16, 9, 0.6) 0%, rgba(10, 9, 6, 0.8) 100%)",
+                border: "1px solid rgba(139, 115, 85, 0.12)",
               }}
             >
+              {/* Золотая линия сверху при hover */}
+              <div className="absolute top-0 left-0 h-[1px] w-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
+
               <span
-                className="mb-8 block text-[28px] text-gold"
+                className="mb-8 block text-[32px] text-gold/70 transition-colors duration-500 group-hover:text-gold"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {skill.icon}
               </span>
               <h4
-                className="mb-5 text-[22px] font-[400] text-text"
+                className="mb-6 text-[24px] font-[400] text-text"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {skill.title}
               </h4>
               <p
-                className="text-[15px] font-[300] leading-[1.9] text-text-muted"
+                className="text-[15px] font-[300] leading-[2] text-text-muted"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {skill.desc}
@@ -135,28 +171,42 @@ export default function Author() {
       {/* Работы на заказ */}
       <div
         className="px-10 md:px-16"
-        style={{ paddingBottom: 160 }}
+        style={{ paddingBottom: 180 }}
       >
+        <div className="mb-16 flex items-center gap-6">
+          <div className="h-[1px] w-12 bg-gold/30" />
+          <span
+            className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Услуги
+          </span>
+          <div className="h-[1px] w-12 bg-gold/30" />
+        </div>
+
         <div
-          className="p-12 md:p-16"
+          className="relative p-12 md:p-16"
           style={{
-            background: "rgba(17, 16, 9, 0.4)",
-            border: "1px solid rgba(42, 37, 32, 0.5)",
+            background: "linear-gradient(135deg, rgba(17, 16, 9, 0.5) 0%, rgba(10, 9, 6, 0.7) 100%)",
+            border: "1px solid rgba(139, 115, 85, 0.12)",
           }}
         >
-          <div className="flex items-start gap-8 mb-12">
-            <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center border border-gold/30">
-              <span className="text-gold text-[20px]">✦</span>
+          {/* Золотая линия сверху */}
+          <div className="absolute top-0 left-0 h-[1px] w-20 bg-gradient-to-r from-gold to-transparent" />
+
+          <div className="flex items-start gap-8 mb-14">
+            <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center border border-gold/20">
+              <span className="text-gold text-[22px]">✦</span>
             </div>
             <div>
               <h3
-                className="mb-5 text-[28px] font-[400] italic text-text"
+                className="mb-6 text-[32px] font-[400] italic text-text"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 Работы на заказ
               </h3>
               <p
-                className="max-w-[600px] text-[15px] font-[300] leading-[2] text-text-muted"
+                className="max-w-[600px] text-[16px] font-[300] leading-[2] text-text-muted"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Лендинги, веб-приложения, SPA, образовательные платформы, Telegram-боты.
@@ -166,18 +216,22 @@ export default function Author() {
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {services.map((service) => (
-              <div
+            {services.map((service, i) => (
+              <motion.div
                 key={service}
-                className="flex items-center gap-4 px-7 py-5 text-[14px] font-[300] text-text-muted transition-colors duration-300 hover:text-text"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.6, delay: 0.6 + i * 0.08 }}
+                className="flex items-center gap-5 px-8 py-6 text-[15px] font-[300] text-text-muted transition-all duration-400 hover:text-text hover:border-border-gold/40"
                 style={{
                   fontFamily: "var(--font-body)",
-                  border: "1px solid rgba(42, 37, 32, 0.4)",
+                  border: "1px solid rgba(139, 115, 85, 0.1)",
+                  background: "rgba(17, 16, 9, 0.3)",
                 }}
               >
                 <span className="text-gold text-[10px]">+</span>
                 {service}
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -186,35 +240,42 @@ export default function Author() {
       {/* Связаться */}
       <div
         className="px-10 md:px-16"
-        style={{ paddingBottom: 180 }}
+        style={{ paddingBottom: 200 }}
       >
-        <h3
-          className="mb-14 text-[32px] font-[400] italic text-text"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          Связаться
-        </h3>
+        <div className="mb-16 flex items-center gap-6">
+          <div className="h-[1px] w-12 bg-gold/30" />
+          <span
+            className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Контакт
+          </span>
+          <div className="h-[1px] w-12 bg-gold/30" />
+        </div>
 
         <div
-          className="p-14 md:p-20 text-center"
+          className="relative p-16 md:p-24 text-center"
           style={{
-            background: "rgba(17, 16, 9, 0.4)",
-            border: "1px solid rgba(42, 37, 32, 0.5)",
+            background: "linear-gradient(135deg, rgba(17, 16, 9, 0.5) 0%, rgba(10, 9, 6, 0.7) 100%)",
+            border: "1px solid rgba(139, 115, 85, 0.12)",
           }}
         >
+          {/* Золотой разделитель */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[1px] w-20 bg-gradient-to-r from-transparent via-gold to-transparent" />
+
           <div className="mb-10 flex justify-center">
-            <div className="flex h-16 w-16 items-center justify-center border border-gold/30">
-              <span className="text-gold text-[24px]">✉</span>
+            <div className="flex h-16 w-16 items-center justify-center border border-gold/20">
+              <span className="text-gold text-[26px]">✉</span>
             </div>
           </div>
           <h4
-            className="mb-8 text-[40px] font-[400] italic text-text"
+            className="mb-8 text-[44px] font-[400] italic text-text md:text-[52px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Давайте работать вместе
           </h4>
           <p
-            className="mb-12 max-w-[500px] mx-auto text-[16px] font-[300] leading-[2] text-text-muted"
+            className="mb-14 max-w-[480px] mx-auto text-[17px] font-[300] leading-[2.1] text-text-muted"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Есть идея? Напишите мне в Telegram — обсудим
@@ -222,12 +283,17 @@ export default function Author() {
           </p>
           <a
             href="#"
-            className="inline-flex items-center gap-3 border border-gold/40 bg-gold/10 px-10 py-5 text-[12px] font-[400] uppercase tracking-[0.2em] text-gold transition-all duration-500 hover:bg-gold hover:text-bg"
+            className="inline-flex items-center gap-4 border border-gold/30 bg-gold/5 px-12 py-6 text-[12px] font-[400] uppercase tracking-[0.25em] text-gold transition-all duration-600 hover:bg-gold hover:text-bg hover:border-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
             <span>Написать в Telegram</span>
-            <span>@zetixx</span>
+            <span className="text-[16px] transition-transform duration-500 group-hover:translate-x-1">→</span>
           </a>
+
+          {/* Декоративная точка снизу */}
+          <div className="mt-16 flex justify-center">
+            <div className="h-[1px] w-[1px] bg-gold/40" />
+          </div>
         </div>
       </div>
     </section>

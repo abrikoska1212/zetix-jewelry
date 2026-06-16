@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg: #0A0906;
+  --color-surface: #111009;
+  --color-surface-2: #1A1710;
+  --color-border: #2A2520;
+  --color-border-gold: #8B7355;
+  --color-text: #F0EDE8;
+  --color-text-muted: #6B6560;
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8D5A3;
+  --color-gold-dim: rgba(201, 168, 76, 0.08);
+  --color-cream: #F5F0E8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none !important;
+  border-radius: 0 !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-bg);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-gold);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+a, button {
+  cursor: none !important;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes writeText {
+  to { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 0.6; }
+}
+
+@keyframes pageFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes reveal {
+  to { opacity: 1; }
+}

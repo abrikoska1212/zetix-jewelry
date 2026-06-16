@@ -112,9 +112,7 @@ export default function Contact() {
           fontFamily: "var(--font-body)",
           borderTop: "1px solid var(--color-border)",
           borderBottom: "1px solid var(--color-border)",
-          cursor: "none",
         }}
-        data-cursor-pointer
       >
         <span>Написать в Telegram</span>
         <span className="transition-transform duration-[400ms] group-hover:translate-x-2">

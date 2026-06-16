@@ -18,7 +18,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none !important;
   border-radius: 0 !important;
 }
 
@@ -57,10 +56,6 @@ html, body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gold);
-}
-
-a, button {
-  cursor: none !important;
 }
 
 @keyframes scrollPulse {

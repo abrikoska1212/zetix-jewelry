@@ -140,7 +140,7 @@ export default function Collections() {
             <button
               onClick={() => setActive(null)}
               className="absolute top-10 right-10 z-[1001] text-[11px] font-[400] uppercase tracking-[0.15em] text-text-muted transition-colors duration-300 hover:text-gold"
-              style={{ fontFamily: "var(--font-body)", background: "none", border: "none", cursor: "none" }}
+              style={{ fontFamily: "var(--font-body)", background: "none", border: "none" }}
               data-cursor-pointer
             >
               ✕ закрыть
@@ -214,9 +214,7 @@ export default function Collections() {
                 style={{
                   fontFamily: "var(--font-body)",
                   borderBottom: "1px solid var(--color-gold)",
-                  cursor: "none",
                 }}
-                data-cursor-pointer
               >
                 Смотреть коллекцию
                 <span>→</span>

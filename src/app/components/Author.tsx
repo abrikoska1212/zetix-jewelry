@@ -7,17 +7,17 @@ const skills = [
   {
     icon: "</>",
     title: "Веб-разработка",
-    desc: "React, TypeScript, современный стек. От идей до деплоя. Чистый код и анимации.",
+    desc: "Лендинги, SPA, Telegram Mini Apps. React, Next.js, TypeScript. От идеи до продакшена.",
   },
   {
     icon: "◈",
     title: "Дизайн",
-    desc: "Интерфейсы, которые хочется использовать. Детали имеют значение.",
+    desc: "UI/UX интерфейсы, прототипы, дизайн-системы. Figma от макета до готового компонента.",
   },
   {
     icon: "✦",
     title: "EdTech",
-    desc: "Образовательные продукты с геймификацией и современным UX.",
+    desc: "Образовательные платформы, геймификация, интерактивные курсы. Удобный UX для учеников.",
   },
 ];
 
@@ -40,8 +40,8 @@ export default function Author() {
       <div
         className="relative px-10 md:px-16"
         style={{
-          paddingTop: 160,
-          paddingBottom: 200,
+          paddingTop: 140,
+          paddingBottom: 120,
           background: "radial-gradient(ellipse 50% 60% at 30% 40%, rgba(26, 20, 8, 0.5) 0%, transparent 60%), var(--color-bg)",
         }}
       >
@@ -57,7 +57,7 @@ export default function Author() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1 }}
-          className="mb-12 flex items-center gap-6"
+          className="mb-10 flex items-center gap-6"
         >
           <div className="h-[1px] w-12 bg-gold/30" />
           <span
@@ -72,7 +72,7 @@ export default function Author() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.1 }}
-          className="mb-12 max-w-[700px] text-[56px] leading-[1.05] font-[400] italic md:text-[88px]"
+          className="mb-10 max-w-[700px] text-[56px] leading-[1.05] font-[400] italic md:text-[88px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Привет, я
@@ -97,7 +97,7 @@ export default function Author() {
           className="absolute bottom-0 left-1/2 -translate-x-1/2"
           style={{
             width: 1,
-            height: 80,
+            height: 60,
             background: "linear-gradient(to top, var(--color-border-gold), transparent)",
           }}
         />
@@ -106,9 +106,9 @@ export default function Author() {
       {/* Чем я занимаюсь */}
       <div
         className="px-10 md:px-16"
-        style={{ paddingTop: 120, paddingBottom: 180 }}
+        style={{ paddingTop: 80, paddingBottom: 100 }}
       >
-        <div className="mb-16 flex items-center gap-6">
+        <div className="mb-10 flex items-center gap-6">
           <div className="h-[1px] w-12 bg-gold/30" />
           <span
             className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
@@ -123,20 +123,20 @@ export default function Author() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mb-20 text-[42px] font-[400] italic text-text md:text-[52px]"
+          className="mb-12 text-[42px] font-[400] italic text-text md:text-[52px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Чем я занимаюсь
         </motion.h3>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {skills.map((skill, i) => (
             <motion.div
               key={skill.title}
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.4 + i * 0.15 }}
-              className="group relative p-12 transition-all duration-600"
+              className="group relative p-10 transition-all duration-600"
               style={{
                 background: "linear-gradient(135deg, rgba(17, 16, 9, 0.6) 0%, rgba(10, 9, 6, 0.8) 100%)",
                 border: "1px solid rgba(139, 115, 85, 0.12)",
@@ -152,13 +152,13 @@ export default function Author() {
                 {skill.icon}
               </span>
               <h4
-                className="mb-6 text-[24px] font-[400] text-text"
+                className="mb-5 text-[22px] font-[400] text-text"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {skill.title}
               </h4>
               <p
-                className="text-[15px] font-[300] leading-[2] text-text-muted"
+                className="text-[15px] font-[300] leading-[1.9] text-text-muted"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {skill.desc}
@@ -171,21 +171,10 @@ export default function Author() {
       {/* Работы на заказ */}
       <div
         className="px-10 md:px-16"
-        style={{ paddingBottom: 180 }}
+        style={{ paddingBottom: 100 }}
       >
-        <div className="mb-16 flex items-center gap-6">
-          <div className="h-[1px] w-12 bg-gold/30" />
-          <span
-            className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Услуги
-          </span>
-          <div className="h-[1px] w-12 bg-gold/30" />
-        </div>
-
         <div
-          className="relative p-12 md:p-16"
+          className="relative p-12 md:p-14"
           style={{
             background: "linear-gradient(135deg, rgba(17, 16, 9, 0.5) 0%, rgba(10, 9, 6, 0.7) 100%)",
             border: "1px solid rgba(139, 115, 85, 0.12)",
@@ -194,19 +183,19 @@ export default function Author() {
           {/* Золотая линия сверху */}
           <div className="absolute top-0 left-0 h-[1px] w-20 bg-gradient-to-r from-gold to-transparent" />
 
-          <div className="flex items-start gap-8 mb-14">
-            <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center border border-gold/20">
-              <span className="text-gold text-[22px]">✦</span>
+          <div className="flex items-start gap-8 mb-10">
+            <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center border border-gold/20">
+              <span className="text-gold text-[20px]">✦</span>
             </div>
             <div>
               <h3
-                className="mb-6 text-[32px] font-[400] italic text-text"
+                className="mb-5 text-[28px] font-[400] italic text-text"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 Работы на заказ
               </h3>
               <p
-                className="max-w-[600px] text-[16px] font-[300] leading-[2] text-text-muted"
+                className="max-w-[600px] text-[15px] font-[300] leading-[2] text-text-muted"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Лендинги, веб-приложения, SPA, образовательные платформы, Telegram-боты.
@@ -215,17 +204,17 @@ export default function Author() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
             {services.map((service, i) => (
               <motion.div
                 key={service}
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.6, delay: 0.6 + i * 0.08 }}
-                className="flex items-center gap-5 px-8 py-6 text-[15px] font-[300] text-text-muted transition-all duration-400 hover:text-text hover:border-border-gold/40"
+                className="flex items-center gap-4 px-6 py-5 text-[14px] font-[300] text-text-muted transition-all duration-400 hover:text-text hover:border-border-gold/40"
                 style={{
                   fontFamily: "var(--font-body)",
-                  border: "1px solid rgba(139, 115, 85, 0.1)",
+                  border: "1px solid rgba(139, 115, 85, 0.08)",
                   background: "rgba(17, 16, 9, 0.3)",
                 }}
               >
@@ -240,21 +229,10 @@ export default function Author() {
       {/* Связаться */}
       <div
         className="px-10 md:px-16"
-        style={{ paddingBottom: 200 }}
+        style={{ paddingBottom: 140 }}
       >
-        <div className="mb-16 flex items-center gap-6">
-          <div className="h-[1px] w-12 bg-gold/30" />
-          <span
-            className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Контакт
-          </span>
-          <div className="h-[1px] w-12 bg-gold/30" />
-        </div>
-
         <div
-          className="relative p-16 md:p-24 text-center"
+          className="relative p-14 md:p-20 text-center"
           style={{
             background: "linear-gradient(135deg, rgba(17, 16, 9, 0.5) 0%, rgba(10, 9, 6, 0.7) 100%)",
             border: "1px solid rgba(139, 115, 85, 0.12)",
@@ -263,19 +241,19 @@ export default function Author() {
           {/* Золотой разделитель */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 h-[1px] w-20 bg-gradient-to-r from-transparent via-gold to-transparent" />
 
-          <div className="mb-10 flex justify-center">
-            <div className="flex h-16 w-16 items-center justify-center border border-gold/20">
-              <span className="text-gold text-[26px]">✉</span>
+          <div className="mb-8 flex justify-center">
+            <div className="flex h-14 w-14 items-center justify-center border border-gold/20">
+              <span className="text-gold text-[24px]">✉</span>
             </div>
           </div>
           <h4
-            className="mb-8 text-[44px] font-[400] italic text-text md:text-[52px]"
+            className="mb-6 text-[40px] font-[400] italic text-text md:text-[48px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Давайте работать вместе
           </h4>
           <p
-            className="mb-14 max-w-[480px] mx-auto text-[17px] font-[300] leading-[2.1] text-text-muted"
+            className="mb-10 max-w-[480px] mx-auto text-[16px] font-[300] leading-[2] text-text-muted"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Есть идея? Напишите мне в Telegram — обсудим
@@ -283,15 +261,15 @@ export default function Author() {
           </p>
           <a
             href="#"
-            className="inline-flex items-center gap-4 border border-gold/30 bg-gold/5 px-12 py-6 text-[12px] font-[400] uppercase tracking-[0.25em] text-gold transition-all duration-600 hover:bg-gold hover:text-bg hover:border-gold"
+            className="inline-flex items-center gap-4 border border-gold/30 bg-gold/5 px-10 py-5 text-[12px] font-[400] uppercase tracking-[0.25em] text-gold transition-all duration-600 hover:bg-gold hover:text-bg hover:border-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
             <span>Написать в Telegram</span>
-            <span className="text-[16px] transition-transform duration-500 group-hover:translate-x-1">→</span>
+            <span className="text-[16px]">→</span>
           </a>
 
           {/* Декоративная точка снизу */}
-          <div className="mt-16 flex justify-center">
+          <div className="mt-12 flex justify-center">
             <div className="h-[1px] w-[1px] bg-gold/40" />
           </div>
         </div>

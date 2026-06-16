@@ -80,19 +80,17 @@ export default function Hero() {
         className="relative flex items-center justify-center"
         style={{
           height: "80vh",
-          background: "radial-gradient(ellipse 90% 90% at 50% 50%, #1a1208 0%, #0a0906 70%)",
+          background: "var(--color-bg)",
         }}
       >
         <img
           src="/images/solitaire.jpg"
           alt="Кольцо"
-          className="relative z-[1] max-h-[80vh] max-w-[80%] object-contain"
+          className="relative z-[1] max-h-[70vh] max-w-[70%] object-contain"
           style={{
             filter: "drop-shadow(0 0 60px rgba(201, 168, 76, 0.15))",
-            WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-            WebkitMaskComposite: "source-in",
-            maskImage: "linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
-            maskComposite: "intersect",
+            WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%)",
+            maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%)",
           }}
         />
       </motion.div>

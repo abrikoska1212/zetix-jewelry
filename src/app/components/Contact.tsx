@@ -111,14 +111,18 @@ export default function Contact() {
           </span>
           <div className="flex flex-col items-center gap-3">
             <a
-              href="#"
+              href="https://t.me/zetixx"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[15px] font-[300] text-text transition-colors duration-300 hover:text-gold"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Telegram @zetixx
             </a>
             <a
-              href="#"
+              href="https://instagram.com/zetixjewelry"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[15px] font-[300] text-text transition-colors duration-300 hover:text-gold"
               style={{ fontFamily: "var(--font-body)" }}
             >
@@ -130,7 +134,9 @@ export default function Contact() {
 
       {/* CTA — кнопка */}
       <motion.a
-        href="#"
+        href="https://t.me/zetixx"
+        target="_blank"
+        rel="noopener noreferrer"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.35 }}

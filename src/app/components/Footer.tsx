@@ -1,33 +1,37 @@
 export default function Footer() {
   return (
     <footer
-      className="flex items-center justify-between"
-      style={{
-        padding: "32px 80px",
-        borderTop: "1px solid var(--color-border-gold)",
-      }}
+      className="flex flex-col items-center"
+      style={{ padding: "60px 80px" }}
     >
-      <div className="flex items-center gap-6">
+      {/* Золотая линия */}
+      <div className="mb-12 h-[1px] w-full max-w-[800px] bg-gradient-to-r from-transparent via-border-gold/40 to-transparent" />
+
+      {/* Основной контент */}
+      <div className="flex w-full max-w-[800px] items-center justify-between">
+        <div className="flex items-center gap-8">
+          <span
+            className="text-[16px] font-[400] italic text-gold"
+            style={{ fontFamily: "var(--font-display)", letterSpacing: "0.08em" }}
+          >
+            Zetix
+          </span>
+          <div className="h-[14px] w-[1px] bg-border-gold/30" />
+          <span
+            className="text-[10px] font-[300] uppercase tracking-[0.2em] text-text-muted"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Ручная работа · Золото · Серебро
+          </span>
+        </div>
+
         <span
-          className="text-[14px] font-[400] text-gold"
-          style={{ fontFamily: "var(--font-display)", letterSpacing: "0.1em" }}
+          className="text-[10px] font-[300] text-text-muted/50"
+          style={{ fontFamily: "var(--font-body)", letterSpacing: "0.05em" }}
         >
-          ZETIX
-        </span>
-        <span
-          className="text-[11px] font-[300] uppercase tracking-[0.12em] text-text-muted"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
-          Ручная работа · Золото · Серебро
+          © 2026
         </span>
       </div>
-
-      <span
-        className="text-[11px] font-[300] text-text-muted"
-        style={{ fontFamily: "var(--font-body)", letterSpacing: "0.05em" }}
-      >
-        © 2026
-      </span>
     </footer>
   );
 }

@@ -11,26 +11,26 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="flex flex-col items-center px-10 py-24 text-center md:px-16 md:py-32"
+      className="flex flex-col items-center px-10 py-32 text-center md:px-16 md:py-44"
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8 }}
-        className="relative py-20"
+        transition={{ duration: 1 }}
+        className="relative py-24"
       >
         {/* Линия сверху */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2"
           style={{
             width: 1,
-            height: 60,
+            height: 70,
             background: "linear-gradient(to bottom, transparent, var(--color-border-gold))",
           }}
         />
 
         <h2
-          className="max-w-[600px] text-[36px] leading-[1.2] font-[400] italic md:text-[48px]"
+          className="max-w-[650px] text-[40px] leading-[1.2] font-[400] italic md:text-[54px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           «Каждое украшение —
@@ -43,7 +43,7 @@ export default function About() {
           className="absolute bottom-0 left-1/2 -translate-x-1/2"
           style={{
             width: 1,
-            height: 60,
+            height: 70,
             background: "linear-gradient(to top, transparent, var(--color-border-gold))",
           }}
         />
@@ -52,8 +52,8 @@ export default function About() {
       <motion.p
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.15 }}
-        className="mb-12 max-w-[560px] text-[16px] font-[300] leading-relaxed text-text-muted"
+        transition={{ duration: 1, delay: 0.15 }}
+        className="mb-16 max-w-[560px] text-[16px] font-[300] leading-[2] text-text-muted"
         style={{ fontFamily: "var(--font-body)" }}
       >
         ZETIX основан на убеждении что украшение
@@ -63,22 +63,35 @@ export default function About() {
         <br className="hidden md:block" /> материалами и не гонимся за количеством.
       </motion.p>
 
+      {/* Факты — элегантная линейка */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex flex-wrap items-center justify-center gap-6"
+        transition={{ duration: 1, delay: 0.3 }}
+        className="flex flex-wrap items-center justify-center gap-8"
       >
-        {["С 2019 года", "Ручная работа", "Москва"].map((item, i) => (
-          <span key={item} className="flex items-center gap-6">
-            <span
-              className="text-[11px] font-[400] uppercase tracking-[0.2em] text-gold"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {item}
-            </span>
+        {[
+          { number: "2019", label: "Год основания" },
+          { number: "100%", label: "Ручная работа" },
+          { number: "585°", label: "Золото проб" },
+        ].map((stat, i) => (
+          <span key={stat.label} className="flex items-center gap-8">
+            <div className="flex flex-col items-center">
+              <span
+                className="text-[28px] font-[400] italic text-gold"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {stat.number}
+              </span>
+              <span
+                className="mt-2 text-[9px] font-[400] uppercase tracking-[0.2em] text-text-muted/60"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                {stat.label}
+              </span>
+            </div>
             {i < 2 && (
-              <div className="h-[1px] w-4 bg-gold/30" />
+              <div className="h-8 w-[1px] bg-border-gold/20" />
             )}
           </span>
         ))}

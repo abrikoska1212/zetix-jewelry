@@ -2,7 +2,6 @@
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import ProductOverlay from "./ProductOverlay";
 
 interface Product {
   id: string;
@@ -83,15 +82,25 @@ export default function Showcase() {
 
   return (
     <>
-      <section ref={ref} className="px-10 md:px-16 py-24 md:py-32">
+      <section ref={ref} className="px-10 md:px-16 py-32 md:py-44">
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16 flex flex-col items-center"
+          className="mb-20 flex flex-col items-center"
         >
+          <div className="mb-8 flex items-center gap-6">
+            <div className="h-[1px] w-12 bg-gold/30" />
+            <span
+              className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              Коллекция
+            </span>
+            <div className="h-[1px] w-12 bg-gold/30" />
+          </div>
           <h2
-            className="text-[36px] font-[400] italic text-text md:text-[48px]"
+            className="text-[42px] font-[400] italic text-text md:text-[52px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Витрина
@@ -109,9 +118,9 @@ export default function Showcase() {
               onClick={() => setSelected(item)}
             >
               {/* Фото + бейдж */}
-              <div className="relative mb-5 aspect-square overflow-hidden bg-surface">
+              <div className="relative mb-6 aspect-square overflow-hidden bg-surface">
                 <div
-                  className="w-full h-full bg-cover bg-center transition-transform duration-[600ms] ease-out group-hover:scale-105"
+                  className="w-full h-full bg-cover bg-center transition-transform duration-[700ms] ease-out group-hover:scale-105"
                   style={{ backgroundImage: `url('${item.image}')` }}
                 />
 
@@ -130,7 +139,12 @@ export default function Showcase() {
                 </div>
 
                 {/* Золотая рамка при hover */}
-                <div className="pointer-events-none absolute inset-0 z-[2] border border-transparent transition-colors duration-[400ms] group-hover:border-border-gold" />
+                <div className="pointer-events-none absolute inset-0 z-[2] border border-transparent transition-colors duration-[500ms] group-hover:border-border-gold" />
+
+                {/* Золотое свечение при hover */}
+                <div className="pointer-events-none absolute inset-0 z-[1] opacity-0 transition-opacity duration-[600ms] group-hover:opacity-100"
+                  style={{ boxShadow: "inset 0 0 60px rgba(201, 168, 76, 0.06)" }}
+                />
               </div>
 
               {/* Информация */}
@@ -142,7 +156,7 @@ export default function Showcase() {
                   {item.type}
                 </p>
                 <h3
-                  className="text-[18px] font-[400] italic text-text transition-colors duration-300 group-hover:text-gold"
+                  className="text-[20px] font-[400] italic text-text transition-colors duration-500 group-hover:text-gold"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {item.name}

@@ -10,7 +10,7 @@ export default function Hero() {
         height: "100vh",
         gridTemplateColumns: "1fr 1fr",
         padding: "0 80px",
-        gap: 60,
+        gap: 80,
         marginBottom: 0,
         background: "radial-gradient(ellipse 60% 80% at 70% 50%, #1a1408 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 20% 80%, #120e04 0%, transparent 50%), var(--color-bg)",
       }}
@@ -19,13 +19,13 @@ export default function Hero() {
       <div className="relative z-10">
         <div
           className="hero-text"
-          style={{ paddingLeft: 32, borderLeft: "1px solid var(--color-border-gold)" }}
+          style={{ paddingLeft: 40, borderLeft: "1px solid rgba(201, 168, 76, 0.3)" }}
         >
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-6 block text-[11px] font-[400] uppercase tracking-[0.2em] text-gold"
+            transition={{ duration: 1, delay: 0.2 }}
+            className="mb-8 block text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Новая коллекция · 2026
@@ -34,8 +34,8 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-6 text-[48px] leading-[1.1] font-[400] italic md:text-[64px]"
+            transition={{ duration: 1, delay: 0.4 }}
+            className="mb-8 text-[56px] leading-[1.05] font-[400] italic md:text-[76px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Украшения,
@@ -48,8 +48,8 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-6 max-w-[320px] text-[15px] font-[300] leading-relaxed text-text-muted"
+            transition={{ duration: 1, delay: 0.6 }}
+            className="mt-8 max-w-[340px] text-[15px] font-[300] leading-[1.9] text-text-muted"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Каждое изделие — ручная работа.
@@ -61,13 +61,12 @@ export default function Hero() {
             href="#collections"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="mt-10 inline-flex items-center gap-3 border-none bg-transparent pb-1.5 text-[11px] font-[400] uppercase tracking-[0.2em] text-gold transition-all duration-[400ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] hover:gap-5 hover:text-gold-light"
-            style={{ fontFamily: "var(--font-body)", borderBottom: "1px solid var(--color-gold)" }}
-            data-cursor-pointer
+            transition={{ duration: 1, delay: 0.8 }}
+            className="mt-12 inline-flex items-center gap-3 text-[11px] font-[400] uppercase tracking-[0.2em] text-gold transition-all duration-500 hover:gap-5 hover:text-gold-light"
+            style={{ fontFamily: "var(--font-body)" }}
           >
             Смотреть коллекцию
-            <span>→</span>
+            <span className="text-[14px]">→</span>
           </motion.a>
         </div>
       </div>
@@ -76,7 +75,7 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
+        transition={{ duration: 1.2, delay: 0.3 }}
         className="relative flex items-center justify-center"
         style={{
           height: "80vh",
@@ -86,18 +85,18 @@ export default function Hero() {
         <img
           src="/images/solitaire.jpg"
           alt="Кольцо"
-          className="relative z-[1] max-h-[70vh] max-w-[70%] object-contain"
+          className="relative z-[1] max-h-[65vh] max-w-[65%] object-contain"
           style={{
-            filter: "drop-shadow(0 0 60px rgba(201, 168, 76, 0.15))",
-            WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%)",
-            maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black 40%, transparent 75%)",
+            filter: "drop-shadow(0 0 80px rgba(201, 168, 76, 0.12))",
+            WebkitMaskImage: "radial-gradient(ellipse 75% 75% at 50% 50%, black 35%, transparent 72%)",
+            maskImage: "radial-gradient(ellipse 75% 75% at 50% 50%, black 35%, transparent 72%)",
           }}
         />
       </motion.div>
 
       {/* Скролл-индикатор */}
       <motion.div
-        className="absolute bottom-10 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
+        className="absolute bottom-12 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
@@ -105,9 +104,9 @@ export default function Hero() {
         <div
           className="w-px origin-top"
           style={{
-            height: 60,
+            height: 50,
             background: "linear-gradient(to bottom, var(--color-gold), transparent)",
-            animation: "scrollPulse 2s ease-in-out infinite",
+            animation: "scrollPulse 2.5s ease-in-out infinite",
           }}
         />
       </motion.div>

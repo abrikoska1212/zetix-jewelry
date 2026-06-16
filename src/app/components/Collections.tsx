@@ -55,12 +55,12 @@ export default function Collections() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16 flex flex-col items-center"
+          className="mb-20 flex flex-col items-center"
         >
-          <div className="mb-6 flex items-center gap-6">
+          <div className="mb-8 flex items-center gap-6">
             <div className="h-[1px] w-12 bg-gold/30" />
             <span
-              className="text-[11px] font-[400] uppercase tracking-[0.3em] text-gold"
+              className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Наши
@@ -68,14 +68,14 @@ export default function Collections() {
             <div className="h-[1px] w-12 bg-gold/30" />
           </div>
           <h2
-            className="text-[36px] font-[400] italic text-text md:text-[48px]"
+            className="text-[42px] font-[400] italic text-text md:text-[52px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Коллекции
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {collections.map((col, i) => (
             <motion.div
               key={col.name}
@@ -85,16 +85,15 @@ export default function Collections() {
                 duration: 0.8,
                 delay: i * 0.15,
               }}
-              className="group relative cursor-pointer overflow-hidden"
+              className="group relative cursor-pointer overflow-hidden gold-glow"
               onClick={() => setActive(col)}
               role="button"
               tabIndex={0}
-              data-cursor-pointer
             >
               {/* Фото */}
               <div className="aspect-[3/4] overflow-hidden bg-surface">
                 <div
-                  className="w-full h-full bg-cover bg-center transition-transform duration-[700ms] ease-out group-hover:scale-105"
+                  className="w-full h-full bg-cover bg-center transition-transform duration-[800ms] ease-out group-hover:scale-105"
                   style={{ backgroundImage: `url('${col.image}')` }}
                 />
               </div>
@@ -103,30 +102,30 @@ export default function Collections() {
               <div
                 className="pointer-events-none absolute inset-0"
                 style={{
-                  background: "linear-gradient(to top, rgba(10, 9, 6, 0.95) 0%, rgba(10, 9, 6, 0.6) 40%, transparent 100%)",
+                  background: "linear-gradient(to top, rgba(10, 9, 6, 0.95) 0%, rgba(10, 9, 6, 0.5) 35%, transparent 100%)",
                 }}
               />
 
               {/* Золотая линия снизу */}
               <div
-                className="absolute bottom-0 left-0 z-[3] h-[1px] w-0 bg-gold transition-all duration-[500ms] ease-[cubic-bezier(0.25,0.1,0.25,1)] group-hover:w-full"
+                className="absolute bottom-0 left-0 z-[3] h-[1px] w-0 bg-gold transition-all duration-[600ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full"
               />
 
               {/* Текст */}
               <h3
-                className="absolute bottom-8 left-8 z-[2] text-[36px] font-[400] italic text-text transition-colors duration-[400ms] group-hover:text-gold"
+                className="absolute bottom-10 left-8 z-[2] text-[38px] font-[400] italic text-text transition-colors duration-[500ms] group-hover:text-gold"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {col.name}
               </h3>
               <span
-                className="absolute bottom-8 right-8 z-[2] text-[11px] font-[400] uppercase tracking-[0.15em] text-gold opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100"
+                className="absolute bottom-10 right-8 z-[2] text-[10px] font-[400] uppercase tracking-[0.15em] text-gold opacity-0 transition-all duration-[500ms] group-hover:opacity-100"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Смотреть →
               </span>
               <span
-                className="absolute bottom-[72px] left-8 z-[2] text-[11px] font-[400] uppercase tracking-[0.15em] text-gold opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute bottom-[80px] left-8 z-[2] text-[10px] font-[400] uppercase tracking-[0.15em] text-gold opacity-0 transition-all duration-[500ms] group-hover:opacity-100"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {col.count}

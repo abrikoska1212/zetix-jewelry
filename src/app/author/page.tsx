@@ -8,7 +8,10 @@ export default function AuthorPage() {
   return (
     <>
       <Navbar />
-      <main className="m-0 min-h-screen p-0 pt-[72px]">
+      <main
+        className="m-0 min-h-screen p-0"
+        style={{ paddingTop: 72 }}
+      >
         <Author />
       </main>
       <Footer />

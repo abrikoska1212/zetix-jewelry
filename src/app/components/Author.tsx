@@ -38,14 +38,14 @@ export default function Author() {
     <section
       id="author"
       ref={ref}
-      className="px-10 md:px-16 py-32 md:py-44"
+      className="px-10 md:px-16 pt-20 pb-32 md:pt-28 md:pb-44"
     >
       {/* Заголовок секции */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 1 }}
-        className="mb-16 flex items-center gap-6"
+        className="mb-10 flex items-center gap-6"
       >
         <div className="h-[1px] w-8 bg-gold/30" />
         <span
@@ -57,12 +57,12 @@ export default function Author() {
       </motion.div>
 
       {/* Приветствие + описание */}
-      <div className="mb-24 max-w-[800px]">
+      <div className="mb-32 max-w-[800px]">
         <motion.h2
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.1 }}
-          className="mb-8 text-[48px] leading-[1.1] font-[400] italic md:text-[72px]"
+          className="mb-10 text-[48px] leading-[1.1] font-[400] italic md:text-[72px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Привет, я
@@ -87,17 +87,17 @@ export default function Author() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 1, delay: 0.3 }}
-        className="mb-8"
+        className="mb-12"
       >
         <h3
-          className="mb-10 text-[24px] font-[400] italic text-text"
+          className="mb-12 text-[28px] font-[400] italic text-text"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Чем я занимаюсь
         </h3>
       </motion.div>
 
-      <div className="mb-24 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="mb-32 grid grid-cols-1 gap-6 md:grid-cols-3">
         {skills.map((skill, i) => (
           <motion.div
             key={skill.title}
@@ -109,7 +109,7 @@ export default function Author() {
           >
             <span className="mb-6 block text-[24px] text-gold">{skill.icon}</span>
             <h4
-              className="mb-4 text-[18px] font-[400] text-text"
+              className="mb-4 text-[20px] font-[400] text-text"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {skill.title}
@@ -129,22 +129,22 @@ export default function Author() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 1, delay: 0.5 }}
-        className="mb-24 border border-border/40 p-10 md:p-14"
+        className="mb-32 border border-border/40 p-10 md:p-14"
         style={{ background: "rgba(17, 16, 9, 0.3)" }}
       >
-        <div className="flex items-start gap-6 mb-8">
+        <div className="flex items-start gap-6 mb-10">
           <div className="mt-1 flex h-10 w-10 items-center justify-center border border-gold/30">
             <span className="text-gold text-[18px]">✦</span>
           </div>
           <div>
             <h3
-              className="mb-3 text-[22px] font-[400] italic text-text"
+              className="mb-4 text-[24px] font-[400] italic text-text"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Работы на заказ
             </h3>
             <p
-              className="max-w-[600px] text-[14px] font-[300] leading-[1.9] text-text-muted"
+              className="max-w-[600px] text-[15px] font-[300] leading-[1.9] text-text-muted"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Беру заказы любой сложности — от идеи до готового изделия.
@@ -158,7 +158,7 @@ export default function Author() {
           {services.map((service) => (
             <div
               key={service}
-              className="flex items-center gap-4 border border-border/30 px-6 py-4 text-[13px] font-[300] text-text-muted transition-colors duration-300 hover:border-border-gold/40 hover:text-text"
+              className="flex items-center gap-4 border border-border/30 px-6 py-4 text-[14px] font-[300] text-text-muted transition-colors duration-300 hover:border-border-gold/40 hover:text-text"
               style={{ fontFamily: "var(--font-body)" }}
             >
               <span className="text-gold text-[10px]">+</span>
@@ -175,29 +175,29 @@ export default function Author() {
         transition={{ duration: 1, delay: 0.6 }}
       >
         <h3
-          className="mb-10 text-[24px] font-[400] italic text-text"
+          className="mb-12 text-[28px] font-[400] italic text-text"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Связаться
         </h3>
 
         <div
-          className="border border-border/40 p-10 md:p-14 text-center"
+          className="border border-border/40 p-12 md:p-16 text-center"
           style={{ background: "rgba(17, 16, 9, 0.3)" }}
         >
-          <div className="mb-6 flex justify-center">
-            <div className="flex h-12 w-12 items-center justify-center border border-gold/30">
-              <span className="text-gold text-[20px]">✉</span>
+          <div className="mb-8 flex justify-center">
+            <div className="flex h-14 w-14 items-center justify-center border border-gold/30">
+              <span className="text-gold text-[22px]">✉</span>
             </div>
           </div>
           <h4
-            className="mb-4 text-[32px] font-[400] italic text-text"
+            className="mb-6 text-[36px] font-[400] italic text-text"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Давайте создадим вместе
           </h4>
           <p
-            className="mb-8 max-w-[500px] mx-auto text-[15px] font-[300] leading-[1.9] text-text-muted"
+            className="mb-10 max-w-[500px] mx-auto text-[16px] font-[300] leading-[1.9] text-text-muted"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Есть идея? Напишите нам в Telegram — обсудим

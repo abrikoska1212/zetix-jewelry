@@ -32,12 +32,16 @@ export default function FeaturedPiece() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex flex-col items-start justify-center px-8 py-16 md:col-span-2 md:px-12 lg:px-16"
         >
-          <span
-            className="mb-8 block text-[11px] font-[400] uppercase tracking-[0.2em] text-gold"
-            style={{ fontFamily: "var(--font-body)", opacity: 0.7 }}
-          >
-            Избранное
-          </span>
+          <div className="mb-8 flex items-center gap-4">
+            <div className="h-[1px] w-8 bg-gold/30" />
+            <span
+              className="text-[11px] font-[400] uppercase tracking-[0.3em] text-gold"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              Выбор мастера
+            </span>
+            <div className="h-[1px] w-8 bg-gold/30" />
+          </div>
 
           <h2
             className="mb-6 text-[40px] leading-[1.1] font-[400] md:text-[56px]"

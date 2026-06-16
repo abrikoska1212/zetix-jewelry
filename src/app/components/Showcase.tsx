@@ -83,14 +83,24 @@ export default function Showcase() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="mb-16 flex flex-col items-center"
         >
-          <span
-            className="mb-16 block text-[11px] font-[400] uppercase tracking-[0.2em] text-gold"
-            style={{ fontFamily: "var(--font-body)", opacity: 0.7 }}
+          <div className="mb-6 flex items-center gap-6">
+            <div className="h-[1px] w-12 bg-gold/30" />
+            <span
+              className="text-[11px] font-[400] uppercase tracking-[0.3em] text-gold"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              Выбрать
+            </span>
+            <div className="h-[1px] w-12 bg-gold/30" />
+          </div>
+          <h2
+            className="text-[36px] font-[400] italic text-text md:text-[48px]"
+            style={{ fontFamily: "var(--font-display)" }}
           >
             Витрина
-          </span>
+          </h2>
         </motion.div>
 
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">

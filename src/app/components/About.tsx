@@ -67,18 +67,18 @@ export default function About() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="flex flex-wrap items-center justify-center gap-4"
+        className="flex flex-wrap items-center justify-center gap-6"
       >
         {["С 2019 года", "Ручная работа", "Москва"].map((item, i) => (
-          <span key={item} className="flex items-center gap-4">
+          <span key={item} className="flex items-center gap-6">
             <span
-              className="text-[11px] font-[400] uppercase tracking-[0.15em] text-gold"
-              style={{ fontFamily: "var(--font-body)", opacity: 0.7 }}
+              className="text-[11px] font-[400] uppercase tracking-[0.2em] text-gold"
+              style={{ fontFamily: "var(--font-body)" }}
             >
               {item}
             </span>
             {i < 2 && (
-              <span className="text-border-gold/40">·</span>
+              <div className="h-[1px] w-4 bg-gold/30" />
             )}
           </span>
         ))}

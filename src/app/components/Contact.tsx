@@ -16,15 +16,21 @@ export default function Contact() {
         borderTop: "1px solid var(--color-border)",
       }}
     >
-      <motion.span
+      <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
-        className="mb-10 block text-[11px] font-[400] uppercase tracking-[0.2em] text-gold"
-        style={{ fontFamily: "var(--font-body)" }}
+        className="mb-10 flex items-center gap-6"
       >
-        Связаться с нами
-      </motion.span>
+        <div className="h-[1px] w-12 bg-gold/30" />
+        <span
+          className="text-[11px] font-[400] uppercase tracking-[0.3em] text-gold"
+          style={{ fontFamily: "var(--font-body)" }}
+        >
+          Связаться
+        </span>
+        <div className="h-[1px] w-12 bg-gold/30" />
+      </motion.div>
 
       <motion.h2
         initial={{ opacity: 0 }}

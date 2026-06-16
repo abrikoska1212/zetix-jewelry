@@ -108,26 +108,28 @@ export default function Author() {
         className="px-10 md:px-16"
         style={{ paddingTop: 80, paddingBottom: 100 }}
       >
-        <div className="mb-10 flex items-center gap-6">
-          <div className="h-[1px] w-12 bg-gold/30" />
-          <span
-            className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Навыки
-          </span>
-          <div className="h-[1px] w-12 bg-gold/30" />
-        </div>
+        <div className="mb-10 flex flex-col items-center">
+          <div className="mb-6 flex items-center gap-6">
+            <div className="h-[1px] w-12 bg-gold/30" />
+            <span
+              className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              Навыки
+            </span>
+            <div className="h-[1px] w-12 bg-gold/30" />
+          </div>
 
-        <motion.h3
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mb-12 text-[42px] font-[400] italic text-text md:text-[52px]"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          Чем я занимаюсь
-        </motion.h3>
+          <motion.h3
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="text-center text-[42px] font-[400] italic text-text md:text-[52px]"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Чем я занимаюсь
+          </motion.h3>
+        </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {skills.map((skill, i) => (
@@ -173,6 +175,19 @@ export default function Author() {
         className="px-10 md:px-16"
         style={{ paddingBottom: 100 }}
       >
+        <div className="mb-10 flex flex-col items-center">
+          <div className="mb-6 flex items-center gap-6">
+            <div className="h-[1px] w-12 bg-gold/30" />
+            <span
+              className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              Услуги
+            </span>
+            <div className="h-[1px] w-12 bg-gold/30" />
+          </div>
+        </div>
+
         <div
           className="relative p-12 md:p-14"
           style={{
@@ -231,6 +246,19 @@ export default function Author() {
         className="px-10 md:px-16"
         style={{ paddingBottom: 140 }}
       >
+        <div className="mb-10 flex flex-col items-center">
+          <div className="mb-6 flex items-center gap-6">
+            <div className="h-[1px] w-12 bg-gold/30" />
+            <span
+              className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              Контакт
+            </span>
+            <div className="h-[1px] w-12 bg-gold/30" />
+          </div>
+        </div>
+
         <div
           className="relative p-14 md:p-20 text-center"
           style={{

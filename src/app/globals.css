@@ -59,19 +59,39 @@ html, body {
   background: var(--color-gold);
 }
 
-/* Премиум шум-текстура — зерно плёнки */
-body::before {
-  content: "";
+/* Noise texture */
+.noise-overlay {
   position: fixed;
   inset: 0;
   z-index: 9998;
   pointer-events: none;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Золотое свечение для hover-состояний */
+/* Ambient background */
+.ambient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 25%, rgba(26, 20, 8, 0.6) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 70% at 85% 75%, rgba(18, 14, 4, 0.5) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 50%, rgba(201, 168, 76, 0.02) 0%, transparent 50%);
+  background-size: 200% 200%;
+  animation: ambientShift 25s ease-in-out infinite;
+  will-change: background-position;
+}
+
+@keyframes ambientShift {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 50% 0%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 100%; }
+}
+
+/* Gold glow */
 .gold-glow {
   transition: box-shadow 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
@@ -79,7 +99,7 @@ body::before {
   box-shadow: 0 0 40px rgba(201, 168, 76, 0.08), 0 0 80px rgba(201, 168, 76, 0.04);
 }
 
-/* Премиум underline для ссылок */
+/* Link underline */
 .link-underline {
   position: relative;
   display: inline-block;
@@ -98,65 +118,12 @@ body::before {
   width: 100%;
 }
 
-/* Плавное появление секций */
-@keyframes sectionReveal {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes scrollPulse {
   0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
   50% { opacity: 1; transform: scaleY(1); }
 }
 
-@keyframes writeText {
-  to { clip-path: inset(0 0% 0 0); }
-}
-
-@keyframes fadeIn {
-  to { opacity: 0.6; }
-}
-
-@keyframes pageFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes reveal {
-  to { opacity: 1; }
-}
-
-/* Пульс для золотых линий */
 @keyframes goldPulse {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.7; }
-}
-
-/* Живой фон — еле заметное движение градиента */
-@keyframes ambientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(ellipse 80% 60% at 20% 30%, rgba(26, 20, 8, 0.4) 0%, transparent 50%),
-              radial-gradient(ellipse 60% 80% at 80% 70%, rgba(18, 14, 4, 0.3) 0%, transparent 50%),
-              radial-gradient(ellipse 50% 50% at 50% 50%, rgba(201, 168, 76, 0.015) 0%, transparent 60%);
-  background-size: 200% 200%;
-  animation: ambientShift 20s ease-in-out infinite;
 }

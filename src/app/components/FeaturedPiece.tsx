@@ -20,6 +20,7 @@ export default function FeaturedPiece() {
             className="w-full h-full bg-cover bg-center transition-transform duration-[800ms] ease-out hover:scale-105"
             style={{
               backgroundImage: "url('/images/featured-ring.jpg')",
+              willChange: "transform",
             }}
           />
         </motion.div>

@@ -94,7 +94,7 @@ export default function Collections() {
               <div className="aspect-[3/4] overflow-hidden bg-surface">
                 <div
                   className="w-full h-full bg-cover bg-center transition-transform duration-[800ms] ease-out group-hover:scale-105"
-                  style={{ backgroundImage: `url('${col.image}')` }}
+                  style={{ backgroundImage: `url('${col.image}')`, willChange: "transform" }}
                 />
               </div>
 
@@ -168,6 +168,7 @@ export default function Collections() {
                 <img
                   src={active.image}
                   alt={active.name}
+                  loading="lazy"
                   className="max-h-[70vh] w-full object-contain"
                   style={{ filter: "drop-shadow(0 0 80px rgba(201, 168, 76, 0.12))" }}
                 />

@@ -29,7 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru" className={`${inter.variable} ${playfair.variable}`}>
-      <body>{children}</body>
+      <body>
+        <div className="ambient-bg" />
+        <div className="noise-overlay" />
+        {children}
+      </body>
     </html>
   );
 }

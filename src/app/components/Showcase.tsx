@@ -121,7 +121,7 @@ export default function Showcase() {
               <div className="relative mb-6 aspect-square overflow-hidden bg-surface">
                 <div
                   className="w-full h-full bg-cover bg-center transition-transform duration-[700ms] ease-out group-hover:scale-105"
-                  style={{ backgroundImage: `url('${item.image}')` }}
+                  style={{ backgroundImage: `url('${item.image}')`, willChange: "transform" }}
                 />
 
                 {/* Вертикальный бейдж материала */}
@@ -200,6 +200,7 @@ export default function Showcase() {
                 <img
                   src={selected.image}
                   alt={selected.name}
+                  loading="lazy"
                   className="max-w-[80%] object-contain"
                   style={{ filter: "drop-shadow(0 0 80px rgba(201, 168, 76, 0.12))" }}
                 />

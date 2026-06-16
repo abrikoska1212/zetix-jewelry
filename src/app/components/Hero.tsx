@@ -85,11 +85,13 @@ export default function Hero() {
         <img
           src="/images/solitaire.jpg"
           alt="Кольцо"
+          loading="eager"
           className="relative z-[1] max-h-[65vh] max-w-[65%] object-contain"
           style={{
             filter: "drop-shadow(0 0 80px rgba(201, 168, 76, 0.12))",
             WebkitMaskImage: "radial-gradient(ellipse 75% 75% at 50% 50%, black 35%, transparent 72%)",
             maskImage: "radial-gradient(ellipse 75% 75% at 50% 50%, black 35%, transparent 72%)",
+            willChange: "transform",
           }}
         />
       </motion.div>

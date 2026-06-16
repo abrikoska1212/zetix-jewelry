@@ -35,34 +35,32 @@ export default function Author() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section
-      id="author"
-      ref={ref}
-      className="px-10 md:px-16 pt-20 pb-32 md:pt-28 md:pb-44"
-    >
-      {/* Заголовок секции */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 1 }}
-        className="mb-10 flex items-center gap-6"
+    <section id="author" ref={ref}>
+      {/* Приветствие */}
+      <div
+        className="px-10 md:px-16"
+        style={{ paddingTop: 140, paddingBottom: 120 }}
       >
-        <div className="h-[1px] w-8 bg-gold/30" />
-        <span
-          className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
-          style={{ fontFamily: "var(--font-body)" }}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 1 }}
+          className="mb-8 flex items-center gap-6"
         >
-          О мастере
-        </span>
-      </motion.div>
+          <div className="h-[1px] w-8 bg-gold/30" />
+          <span
+            className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            О мастере
+          </span>
+        </motion.div>
 
-      {/* Приветствие + описание */}
-      <div className="mb-32 max-w-[800px]">
         <motion.h2
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.1 }}
-          className="mb-10 text-[48px] leading-[1.1] font-[400] italic md:text-[72px]"
+          className="mb-8 text-[48px] leading-[1.1] font-[400] italic md:text-[72px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Привет, я
@@ -82,97 +80,99 @@ export default function Author() {
         </motion.p>
       </div>
 
-      {/* Что я делаю — карточки */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="mb-12"
+      {/* Чем я занимаюсь */}
+      <div
+        className="px-10 md:px-16"
+        style={{ paddingBottom: 140 }}
       >
-        <h3
-          className="mb-12 text-[28px] font-[400] italic text-text"
+        <motion.h3
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="mb-14 text-[28px] font-[400] italic text-text"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Чем я занимаюсь
-        </h3>
-      </motion.div>
+        </motion.h3>
 
-      <div className="mb-32 grid grid-cols-1 gap-6 md:grid-cols-3">
-        {skills.map((skill, i) => (
-          <motion.div
-            key={skill.title}
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 + i * 0.1 }}
-            className="group border border-border/50 p-8 transition-all duration-500 hover:border-border-gold/40"
-            style={{ background: "rgba(17, 16, 9, 0.4)" }}
-          >
-            <span className="mb-6 block text-[24px] text-gold">{skill.icon}</span>
-            <h4
-              className="mb-4 text-[20px] font-[400] text-text"
-              style={{ fontFamily: "var(--font-display)" }}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {skills.map((skill, i) => (
+            <motion.div
+              key={skill.title}
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.4 + i * 0.1 }}
+              className="group border border-border/50 p-8 transition-all duration-500 hover:border-border-gold/40"
+              style={{ background: "rgba(17, 16, 9, 0.4)" }}
             >
-              {skill.title}
-            </h4>
-            <p
-              className="text-[14px] font-[300] leading-[1.8] text-text-muted"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {skill.desc}
-            </p>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Услуги на заказ */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="mb-32 border border-border/40 p-10 md:p-14"
-        style={{ background: "rgba(17, 16, 9, 0.3)" }}
-      >
-        <div className="flex items-start gap-6 mb-10">
-          <div className="mt-1 flex h-10 w-10 items-center justify-center border border-gold/30">
-            <span className="text-gold text-[18px]">✦</span>
-          </div>
-          <div>
-            <h3
-              className="mb-4 text-[24px] font-[400] italic text-text"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Работы на заказ
-            </h3>
-            <p
-              className="max-w-[600px] text-[15px] font-[300] leading-[1.9] text-text-muted"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Беру заказы любой сложности — от идеи до готового изделия.
-              Работаю от прототипа до финального продукта. Чистое исполнение,
-              внимание к деталям, ручная доводка.
-            </p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {services.map((service) => (
-            <div
-              key={service}
-              className="flex items-center gap-4 border border-border/30 px-6 py-4 text-[14px] font-[300] text-text-muted transition-colors duration-300 hover:border-border-gold/40 hover:text-text"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              <span className="text-gold text-[10px]">+</span>
-              {service}
-            </div>
+              <span className="mb-6 block text-[24px] text-gold">{skill.icon}</span>
+              <h4
+                className="mb-4 text-[20px] font-[400] text-text"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                {skill.title}
+              </h4>
+              <p
+                className="text-[14px] font-[300] leading-[1.8] text-text-muted"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                {skill.desc}
+              </p>
+            </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
+
+      {/* Работы на заказ */}
+      <div
+        className="px-10 md:px-16"
+        style={{ paddingBottom: 140 }}
+      >
+        <div
+          className="border border-border/40 p-10 md:p-14"
+          style={{ background: "rgba(17, 16, 9, 0.3)" }}
+        >
+          <div className="flex items-start gap-6 mb-10">
+            <div className="mt-1 flex h-10 w-10 items-center justify-center border border-gold/30">
+              <span className="text-gold text-[18px]">✦</span>
+            </div>
+            <div>
+              <h3
+                className="mb-4 text-[24px] font-[400] italic text-text"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Работы на заказ
+              </h3>
+              <p
+                className="max-w-[600px] text-[15px] font-[300] leading-[1.9] text-text-muted"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                Беру заказы любой сложности — от идеи до готового изделия.
+                Работаю от прототипа до финального продукта. Чистое исполнение,
+                внимание к деталям, ручная доводка.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {services.map((service) => (
+              <div
+                key={service}
+                className="flex items-center gap-4 border border-border/30 px-6 py-4 text-[14px] font-[300] text-text-muted transition-colors duration-300 hover:border-border-gold/40 hover:text-text"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                <span className="text-gold text-[10px]">+</span>
+                {service}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Связаться */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 1, delay: 0.6 }}
+      <div
+        className="px-10 md:px-16"
+        style={{ paddingBottom: 160 }}
       >
         <h3
           className="mb-12 text-[28px] font-[400] italic text-text"
@@ -212,7 +212,7 @@ export default function Author() {
             <span>@zetixx</span>
           </a>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

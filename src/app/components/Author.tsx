@@ -5,29 +5,29 @@ import { useRef } from "react";
 
 const skills = [
   {
-    icon: "◇",
-    title: "Ручная работа",
-    desc: "Каждое изделие создаётся вручную. Без конвейера, без шаблонов. Только мастер и золото.",
-  },
-  {
-    icon: "✦",
-    title: "Гравировка",
-    desc: "Уникальные узоры и надписи, выполненные вручную. Каждая гравировка как отпечаток пальца.",
+    icon: "<>",
+    title: "Веб-разработка",
+    desc: "React, TypeScript, современный стек. От идей до деплоя. Чистый код и анимации.",
   },
   {
     icon: "◈",
-    title: "Инкрустация",
-    desc: "Натуральные камни вставлены так, чтобы подчёркивать характер камня, а не скрывать его.",
+    title: "Дизайн",
+    desc: "Интерфейсы, которые хочется использовать. Детали имеют значение.",
+  },
+  {
+    icon: "✦",
+    title: "EdTech",
+    desc: "Образовательные продукты с геймификацией и современным UX.",
   },
 ];
 
 const services = [
-  "Индивидуальный заказ украшений",
-  "Ремонт и реставрация золота",
-  "Гравировка на металле",
-  "Подбор и инкрустация камней",
-  "Реставрация семейных украшений",
-  "Консультация по материалам",
+  "Лендинги и корпоративные сайты",
+  "Веб-приложения (React / Next.js)",
+  "Telegram-боты и Mini Apps",
+  "EdTech-платформы",
+  "UI/UX дизайн интерфейсов",
+  "Интеграция с API и базами данных",
 ];
 
 export default function Author() {
@@ -52,7 +52,7 @@ export default function Author() {
             className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            О мастере
+            Обо мне
           </span>
         </motion.div>
 
@@ -65,7 +65,7 @@ export default function Author() {
         >
           Привет, я
           <br />
-          <span className="text-gold">мастер Zetix</span>
+          <span className="text-gold">ZETIXX</span>
         </motion.h2>
 
         <motion.p
@@ -75,8 +75,9 @@ export default function Author() {
           className="max-w-[600px] text-[16px] font-[300] leading-[2] text-text-muted"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          Ювелир, который превращает золото и камни в украшения с характером.
-          Каждое изделие — это история, созданная с вниманием к каждой детали.
+          Разработчик, который превращает сложные вещи в простые и
+          красивые продукты. «Зетикс» — мой личный проект, созданный с
+          вниманием к каждой детали.
         </motion.p>
       </div>
 
@@ -105,7 +106,7 @@ export default function Author() {
               className="group border border-border/50 p-8 transition-all duration-500 hover:border-border-gold/40"
               style={{ background: "rgba(17, 16, 9, 0.4)" }}
             >
-              <span className="mb-6 block text-[24px] text-gold">{skill.icon}</span>
+              <span className="mb-6 block text-[20px] text-gold" style={{ fontFamily: "var(--font-body)" }}>{skill.icon}</span>
               <h4
                 className="mb-4 text-[20px] font-[400] text-text"
                 style={{ fontFamily: "var(--font-display)" }}
@@ -147,9 +148,8 @@ export default function Author() {
                 className="max-w-[600px] text-[15px] font-[300] leading-[1.9] text-text-muted"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Беру заказы любой сложности — от идеи до готового изделия.
-                Работаю от прототипа до финального продукта. Чистое исполнение,
-                внимание к деталям, ручная доводка.
+                Лендинги, веб-приложения, SPA, образовательные платформы, Telegram-боты.
+                Работаю от прототипа до финального продукта. Чистый код, адаптив, анимации.
               </p>
             </div>
           </div>
@@ -194,13 +194,13 @@ export default function Author() {
             className="mb-6 text-[36px] font-[400] italic text-text"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Давайте создадим вместе
+            Давайте работать вместе
           </h4>
           <p
             className="mb-10 max-w-[500px] mx-auto text-[16px] font-[300] leading-[1.9] text-text-muted"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Есть идея? Напишите нам в Telegram — обсудим
+            Есть идея? Напишите мне в Telegram — обсудим
             детали, сроки и бюджет.
           </p>
           <a

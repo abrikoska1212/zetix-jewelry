@@ -209,7 +209,7 @@ export default function Author() {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.8, delay: 0.5 + i * 0.15 }}
-              className="group relative block p-10 transition-all duration-500"
+              className="group relative block p-10 text-center transition-all duration-500"
               style={{
                 background: "linear-gradient(135deg, rgba(17, 16, 9, 0.6) 0%, rgba(10, 9, 6, 0.8) 100%)",
                 border: "1px solid rgba(139, 115, 85, 0.12)",
@@ -219,14 +219,14 @@ export default function Author() {
               {/* Золотая линия сверху при hover */}
               <div className="absolute top-0 left-0 h-[1px] w-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:w-full" />
 
-              <div className="mb-6 flex items-center justify-between">
+              <div className="mb-6 flex flex-col items-center">
                 <h4
                   className="text-[24px] font-[400] text-text transition-colors duration-500 group-hover:text-gold"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   {project.name}
                 </h4>
-                <span className="text-gold text-[18px] opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:translate-x-1">→</span>
+                <span className="mt-2 text-gold text-[14px] opacity-0 transition-all duration-500 group-hover:opacity-100">→</span>
               </div>
               <p
                 className="text-[15px] font-[300] leading-[1.9] text-text-muted"

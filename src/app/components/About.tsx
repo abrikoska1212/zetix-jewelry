@@ -11,28 +11,26 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="flex flex-col items-center px-10 text-center md:px-16"
-      style={{ paddingTop: 60, paddingBottom: 80 }}
+      className="flex flex-col items-center px-10 py-32 text-center md:px-16 md:py-44"
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 1 }}
-        className="relative py-16"
-        style={{ width: "80%" }}
+        className="relative py-24"
       >
         {/* Линия сверху */}
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2"
           style={{
             width: 1,
-            height: 50,
+            height: 70,
             background: "linear-gradient(to bottom, transparent, var(--color-border-gold))",
           }}
         />
 
         <h2
-          className="mx-auto max-w-[650px] text-[36px] leading-[1.2] font-[400] italic md:text-[48px]"
+          className="max-w-[650px] text-[40px] leading-[1.2] font-[400] italic md:text-[54px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           «Каждое украшение —
@@ -45,7 +43,7 @@ export default function About() {
           className="absolute bottom-0 left-1/2 -translate-x-1/2"
           style={{
             width: 1,
-            height: 50,
+            height: 70,
             background: "linear-gradient(to top, transparent, var(--color-border-gold))",
           }}
         />
@@ -55,7 +53,7 @@ export default function About() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 1, delay: 0.15 }}
-        className="mb-10 max-w-[560px] text-[15px] font-[300] leading-[2] text-text-muted"
+        className="mb-16 max-w-[560px] text-[16px] font-[300] leading-[2] text-text-muted"
         style={{ fontFamily: "var(--font-body)" }}
       >
         ZETIX основан на убеждении что украшение

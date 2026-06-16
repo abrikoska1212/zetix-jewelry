@@ -198,25 +198,20 @@ export default function Author() {
           {/* Золотая линия сверху */}
           <div className="absolute top-0 left-0 h-[1px] w-20 bg-gradient-to-r from-gold to-transparent" />
 
-          <div className="flex items-start gap-8 mb-10">
-            <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center border border-gold/20">
-              <span className="text-gold text-[20px]">✦</span>
-            </div>
-            <div>
-              <h3
-                className="mb-5 text-[28px] font-[400] italic text-text"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                Работы на заказ
-              </h3>
-              <p
-                className="max-w-[600px] text-[15px] font-[300] leading-[2] text-text-muted"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                Лендинги, веб-приложения, SPA, образовательные платформы, Telegram-боты.
-                Работаю от прототипа до финального продукта. Чистый код, адаптив, анимации.
-              </p>
-            </div>
+          <div className="mb-10 flex flex-col items-center text-center">
+            <h3
+              className="mb-5 text-[28px] font-[400] italic text-text"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Работы на заказ
+            </h3>
+            <p
+              className="max-w-[600px] text-[15px] font-[300] leading-[2] text-text-muted"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              Лендинги, веб-приложения, SPA, образовательные платформы, Telegram-боты.
+              Работаю от прототипа до финального продукта. Чистый код, адаптив, анимации.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2">

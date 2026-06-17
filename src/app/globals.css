@@ -400,13 +400,12 @@ html, body {
   /* Author page */
   .author-hero {
     padding: 100px 20px 80px !important;
+    min-height: auto !important;
   }
   .author-hero h2 {
     font-size: clamp(36px, 10vw, 56px) !important;
   }
-  .author-services-grid {
-    grid-template-columns: 1fr !important;
-  }
+
   .author-projects-grid {
     grid-template-columns: 1fr !important;
   }

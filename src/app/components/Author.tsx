@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
 const skills = [
   {
@@ -32,214 +32,140 @@ const services = [
 
 export default function Author() {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  const greeting = "Привет, я";
+  const [typed, setTyped] = useState("");
+  const [showName, setShowName] = useState(false);
+  const [showDesc, setShowDesc] = useState(false);
+
+  useEffect(() => {
+    if (!isInView) return;
+    let i = 0;
+    const timer = setInterval(() => {
+      i++;
+      setTyped(greeting.slice(0, i));
+      if (i >= greeting.length) {
+        clearInterval(timer);
+        setTimeout(() => setShowName(true), 400);
+        setTimeout(() => setShowDesc(true), 1200);
+      }
+    }, 80);
+    return () => clearInterval(timer);
+  }, [isInView]);
 
   return (
     <section id="author" ref={ref}>
       {/* Герой — приветствие */}
       <div
-        className="author-hero relative px-5 md:px-16"
+        className="author-hero relative flex items-center justify-center overflow-hidden px-5 md:px-16"
         style={{
-          paddingTop: 140,
-          paddingBottom: 120,
+          minHeight: "90vh",
           background: "radial-gradient(ellipse 50% 60% at 30% 40%, rgba(26, 20, 8, 0.5) 0%, transparent 60%), var(--color-bg)",
         }}
       >
-        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", maxWidth: 1200, margin: "0 auto" }}>
-          {/* LEFT: текст */}
-          <div style={{ position: "relative", zIndex: 10, flex: "0 1 55%" }}>
-            {/* Золотая точка-акцент */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 1.2 }}
-              className="absolute left-5 top-20 h-[6px] w-[6px] rounded-full bg-gold md:left-0"
-            />
+        <div style={{ position: "relative", zIndex: 10, textAlign: "center", maxWidth: 900, width: "100%" }}>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 1 }}
-              className="mb-10 flex items-center gap-6"
-            >
-              <div className="h-[1px] w-12 bg-gold/30" />
-              <span
-                className="text-[10px] font-[400] uppercase tracking-[0.4em] text-gold"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                Обо мне
-              </span>
-            </motion.div>
+          {/* Золотая точка-акцент */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 1.2 }}
+            style={{ position: "absolute", top: -60, left: "50%", transform: "translateX(-50%)", width: 6, height: 6, borderRadius: "50%", background: "#C9A84C" }}
+          />
 
-            <motion.h2
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 1, delay: 0.1 }}
-              className="mb-10 max-w-[700px] text-[56px] leading-[1.05] font-[400] italic md:text-[88px]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Привет, я
-              <br />
-              <span className="text-gold">ZETIXX</span>
-            </motion.h2>
+          {/* Лейбл "Обо мне" */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 1 }}
+            style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 24, marginBottom: 48 }}
+          >
+            <div style={{ height: 1, width: 48, background: "rgba(201,168,76,0.3)" }} />
+            <span style={{ fontSize: 10, fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.4em", color: "#C9A84C", fontFamily: "var(--font-body)" }}>
+              Обо мне
+            </span>
+            <div style={{ height: 1, width: 48, background: "rgba(201,168,76,0.3)" }} />
+          </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="max-w-[520px] text-[17px] font-[300] leading-[2.1] text-text-muted"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Разработчик, который превращает сложные вещи в простые и
-              красивые продукты. «Зетикс» — мой личный проект, созданный с
-              вниманием к каждой детали.
-            </motion.p>
+          {/* "Привет, я" — печатается */}
+          <div style={{ overflow: "hidden", marginBottom: 0 }}>
+            <h2 style={{
+              fontSize: "clamp(48px, 7vw, 96px)",
+              lineHeight: 1.05,
+              fontWeight: 400,
+              fontStyle: "italic",
+              color: "#F0EDE8",
+              fontFamily: "var(--font-display)",
+              letterSpacing: "-0.01em",
+              whiteSpace: "nowrap",
+              display: "inline-block",
+            }}>
+              {typed}
+              {typed.length < greeting.length && (
+                <span style={{
+                  display: "inline-block",
+                  width: 3,
+                  height: "0.85em",
+                  background: "#C9A84C",
+                  marginLeft: 4,
+                  verticalAlign: "baseline",
+                  animation: "blink 1s step-end infinite",
+                }} />
+              )}
+            </h2>
           </div>
 
-          {/* RIGHT: абстрактная анимация — только desktop */}
-          <div className="hidden md:block" style={{ flex: "0 1 40%", position: "relative", height: 480, marginTop: 20 }}>
-            {/* SVG: золотая линия, прорисовывающая букву Z */}
-            <svg
-              viewBox="0 0 400 480"
-              fill="none"
-              style={{ position: "absolute", top: 0, right: 0, width: "100%", height: "100%" }}
-            >
-              {/* Диагональ 1 */}
-              <motion.line
-                x1="40" y1="40" x2="360" y2="440"
-                stroke="rgba(201,168,76,0.08)"
-                strokeWidth="1"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : {}}
-                transition={{ duration: 2, delay: 0.5, ease: [0.76, 0, 0.24, 1] }}
-              />
-              {/* Диагональ 2 */}
-              <motion.line
-                x1="360" y1="40" x2="40" y2="440"
-                stroke="rgba(201,168,76,0.06)"
-                strokeWidth="1"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : {}}
-                transition={{ duration: 2, delay: 0.8, ease: [0.76, 0, 0.24, 1] }}
-              />
-              {/* Горизонталь верх */}
-              <motion.line
-                x1="60" y1="40" x2="340" y2="40"
-                stroke="rgba(201,168,76,0.12)"
-                strokeWidth="1"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : {}}
-                transition={{ duration: 1.2, delay: 1.2, ease: [0.76, 0, 0.24, 1] }}
-              />
-              {/* Горизонталь низ */}
-              <motion.line
-                x1="60" y1="440" x2="340" y2="440"
-                stroke="rgba(201,168,76,0.12)"
-                strokeWidth="1"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : {}}
-                transition={{ duration: 1.2, delay: 1.5, ease: [0.76, 0, 0.24, 1] }}
-              />
-              {/* Маленький ромб в центре */}
-              <motion.polygon
-                points="200,200 230,240 200,280 170,240"
-                stroke="rgba(201,168,76,0.15)"
-                strokeWidth="1"
-                fill="none"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-                transition={{ duration: 1.5, delay: 2, ease: [0.76, 0, 0.24, 1] }}
-              />
-              {/* Точка в центре ромба */}
-              <motion.circle
-                cx="200" cy="240" r="3"
-                fill="#C9A84C"
-                initial={{ opacity: 0, scale: 0 }}
-                animate={isInView ? { opacity: 0.3, scale: 1 } : {}}
-                transition={{ duration: 0.8, delay: 2.8 }}
-              />
-            </svg>
+          {/* "ZETIXX" — огромный курсив, слегка наезжает на строку выше */}
+          <div style={{ overflow: "hidden", marginTop: showName ? -20 : 10, transition: "margin-top 0.8s cubic-bezier(0.76, 0, 0.24, 1)" }}>
+            <AnimatePresence>
+              {showName && (
+                <motion.h2
+                  initial={{ y: 80, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+                  style={{
+                    fontSize: "clamp(72px, 14vw, 180px)",
+                    lineHeight: 0.95,
+                    fontWeight: 400,
+                    fontStyle: "italic",
+                    color: "#C9A84C",
+                    fontFamily: "var(--font-display)",
+                    letterSpacing: "-0.02em",
+                    textShadow: "0 0 120px rgba(201,168,76,0.15)",
+                  }}
+                >
+                  ZETIXX
+                </motion.h2>
+              )}
+            </AnimatePresence>
+          </div>
 
-            {/* Большая курсивная Z — прорисовывается */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 1.5, delay: 0.8 }}
-              style={{
-                position: "absolute",
-                top: "50%",
-                right: 40,
-                transform: "translateY(-50%)",
-                fontSize: "clamp(120px, 20vw, 260px)",
-                fontWeight: 400,
-                fontStyle: "italic",
-                fontFamily: "var(--font-display)",
-                color: "transparent",
-                WebkitTextStroke: "1px rgba(201,168,76,0.15)",
-                lineHeight: 1,
-                userSelect: "none",
-              }}
-            >
-              Z
-            </motion.div>
-
-            {/* Курсивный "Z" — заливка появляется с задержкой */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 2, delay: 1.5 }}
-              style={{
-                position: "absolute",
-                top: "50%",
-                right: 40,
-                transform: "translateY(-50%)",
-                fontSize: "clamp(120px, 20vw, 260px)",
-                fontWeight: 400,
-                fontStyle: "italic",
-                fontFamily: "var(--font-display)",
-                color: "rgba(201,168,76,0.06)",
-                lineHeight: 1,
-                userSelect: "none",
-              }}
-            >
-              Z
-            </motion.div>
-
-            {/* Вертикальная линия-ствол */}
-            <motion.div
-              initial={{ scaleY: 0, opacity: 0 }}
-              animate={isInView ? { scaleY: 1, opacity: 1 } : {}}
-              transition={{ duration: 1.5, delay: 1, ease: [0.76, 0, 0.24, 1] }}
-              style={{
-                position: "absolute",
-                right: 20,
-                top: 60,
-                width: 1,
-                height: 360,
-                background: "linear-gradient(to bottom, transparent, rgba(201,168,76,0.15), transparent)",
-                transformOrigin: "top",
-              }}
-            />
-
-            {/* Небольшой текст "est. 2026" */}
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 1, delay: 2.5 }}
-              style={{
-                position: "absolute",
-                bottom: 30,
-                right: 40,
-                fontSize: "9px",
-                fontWeight: 300,
-                letterSpacing: "0.3em",
-                textTransform: "uppercase",
-                color: "rgba(201,168,76,0.25)",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              est. 2026
-            </motion.span>
+          {/* Описание — выезжает снизу */}
+          <div style={{ overflow: "hidden", marginTop: 40 }}>
+            <AnimatePresence>
+              {showDesc && (
+                <motion.div
+                  initial={{ y: 40, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
+                >
+                  <p style={{
+                    maxWidth: 520,
+                    margin: "0 auto",
+                    fontSize: 16,
+                    fontWeight: 300,
+                    lineHeight: 2,
+                    color: "#6B6560",
+                    fontFamily: "var(--font-body)",
+                  }}>
+                    Разработчик, который превращает сложные вещи в простые и
+                    красивые продукты. «Зетикс» — мой личный проект, созданный с
+                    вниманием к каждой детали.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
 

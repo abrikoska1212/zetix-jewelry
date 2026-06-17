@@ -92,7 +92,7 @@ export default function Author() {
 
           {/* "Привет, я" — печатается */}
           <div style={{ overflow: "hidden", marginBottom: 0 }}>
-            <h2 style={{
+            <h2 className="author-hero-greeting" style={{
               fontSize: "clamp(48px, 7vw, 96px)",
               lineHeight: 1.05,
               fontWeight: 400,
@@ -126,6 +126,7 @@ export default function Author() {
                   initial={{ y: 80, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
+                  className="author-hero-zetixx"
                   style={{
                     fontSize: "clamp(72px, 14vw, 180px)",
                     lineHeight: 0.95,

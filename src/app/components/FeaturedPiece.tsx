@@ -42,54 +42,48 @@ export default function FeaturedPiece() {
           transition={{ duration: 1, delay: 0.2 }}
           className="col-span-2 relative flex flex-col justify-between px-12 py-10 lg:px-16"
         >
-          {/* Декоративная кавычка */}
-          <span
-            className="absolute right-6 top-1/2 -translate-y-1/2 select-none pointer-events-none text-[200px] font-[400] italic leading-none text-gold/[0.04]"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            »
-          </span>
+          <div className="relative z-[1] flex flex-col h-full">
+            <div className="mb-auto">
+              <div className="mb-8 flex items-center gap-4">
+                <div className="h-[1px] w-8 bg-gold/30" />
+                <span
+                  className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  Выбор мастера
+                </span>
+              </div>
 
-          <div className="relative z-[1]">
-            <div className="mb-8 flex items-center gap-4">
-              <div className="h-[1px] w-8 bg-gold/30" />
-              <span
-                className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
+              <h2
+                className="mb-8 text-[64px] leading-[1] font-[400]"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Кольцо
+                <br />
+                «Вечер»
+              </h2>
+
+              <div className="mb-8 h-[1px] w-16 bg-gradient-to-r from-gold to-transparent" />
+
+              <p
+                className="mb-10 text-[15px] font-[300] leading-[2] text-text-muted"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Выбор мастера
-              </span>
+                Жёлтое золото 585° пробы. Бриллиант
+                0.3 карата класса VS. Гравировка
+                выполнена вручную в нашем ателье.
+              </p>
             </div>
 
-            <h2
-              className="mb-8 text-[64px] leading-[1] font-[400]"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Кольцо
-              <br />
-              «Вечер»
-            </h2>
-
-            <div className="mb-8 h-[1px] w-16 bg-gradient-to-r from-gold to-transparent" />
-
-            <p
-              className="mb-10 max-w-[320px] text-[15px] font-[300] leading-[2] text-text-muted"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Жёлтое золото 585° пробы. Бриллиант
-              0.3 карата класса VS. Гравировка
-              выполнена вручную в нашем ателье.
-            </p>
-
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 mt-auto">
               {[
                 { label: "Проба", value: "585° · Жёлтое золото" },
                 { label: "Камень", value: "Бриллиант 0.3 кт · VS" },
                 { label: "Обработка", value: "Ручная гравировка" },
               ].map((spec, i) => (
-                <div key={i} className="flex items-baseline gap-6">
+                <div key={i} className="flex items-baseline gap-6 border-t border-border/30 pt-4">
                   <span
-                    className="min-w-[70px] text-[10px] font-[400] uppercase tracking-[0.15em] text-gold/50"
+                    className="min-w-[90px] text-[10px] font-[400] uppercase tracking-[0.15em] text-gold/50"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     {spec.label}

@@ -10,20 +10,14 @@ export default function FeaturedPiece() {
   return (
     <section ref={ref} className="px-5 py-24 md:px-16 md:py-32">
       {/* Desktop */}
-      <div className="hidden md:block relative">
-        {/* Фон — полупрозрачное фото на всю ширину */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-[0.06]"
-          style={{ backgroundImage: "url('/images/featured-ring.jpg')" }}
-        />
-
-        <div className="relative grid grid-cols-12 gap-0 min-h-[520px]">
-          {/* Левая часть — фото */}
+      <div className="hidden md:block">
+        <div className="flex min-h-[420px]">
+          {/* Фото — 70% */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 1 }}
-            className="col-span-5 relative overflow-hidden bg-surface"
+            className="w-[70%] relative overflow-hidden bg-surface"
           >
             <div
               className="bg-cover bg-center transition-transform duration-[800ms] ease-out hover:scale-105 w-full h-full absolute inset-0"
@@ -43,12 +37,12 @@ export default function FeaturedPiece() {
             </div>
           </motion.div>
 
-          {/* Правая часть — текст */}
+          {/* Текст — 30% */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
-            className="col-span-7 flex flex-col justify-between py-14 px-14 lg:px-20"
+            className="w-[30%] flex flex-col justify-between py-12 px-10 lg:px-14"
           >
             {/* Верх: лейбл + заголовок */}
             <div>
@@ -83,46 +77,32 @@ export default function FeaturedPiece() {
               </p>
             </div>
 
-            {/* Низ: характеристики + цитата */}
-            <div className="flex items-end justify-between gap-10">
-              <div className="flex flex-col gap-0">
-                {[
-                  { label: "Проба", value: "585° · Жёлтое золото" },
-                  { label: "Камень", value: "Бриллиант 0.3 кт · VS" },
-                  { label: "Обработка", value: "Ручная гравировка" },
-                ].map((spec) => (
-                  <div
-                    key={spec.label}
-                    className="flex items-baseline gap-8 border-t border-border/30 py-3"
+            {/* Характеристики */}
+            <div>
+              {[
+                { label: "Проба", value: "585° · Жёлтое золото" },
+                { label: "Камень", value: "Бриллиант 0.3 кт · VS" },
+                { label: "Обработка", value: "Ручная гравировка" },
+              ].map((spec) => (
+                <div
+                  key={spec.label}
+                  className="flex items-baseline gap-5 border-t border-border/30 py-3"
+                >
+                  <span
+                    className="min-w-[70px] text-[9px] font-[400] uppercase tracking-[0.12em] text-gold/50"
+                    style={{ fontFamily: "var(--font-body)" }}
                   >
-                    <span
-                      className="min-w-[100px] text-[10px] font-[400] uppercase tracking-[0.15em] text-gold/50"
-                      style={{ fontFamily: "var(--font-body)" }}
-                    >
-                      {spec.label}
-                    </span>
-                    <span
-                      className="text-[13px] font-[300] text-text-muted"
-                      style={{ fontFamily: "var(--font-body)" }}
-                    >
-                      {spec.value}
-                    </span>
-                  </div>
-                ))}
-                <div className="border-t border-border/30" />
-              </div>
-
-              {/* Поэтическая цитата справа внизу */}
-              <p
-                className="max-w-[240px] text-[14px] font-[300] italic leading-[1.9] text-text-muted/50 text-right"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                «Кольцо создано для тех,
-                <br />
-                кто ценит тишину
-                <br />
-                золота»
-              </p>
+                    {spec.label}
+                  </span>
+                  <span
+                    className="text-[12px] font-[300] text-text-muted"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    {spec.value}
+                  </span>
+                </div>
+              ))}
+              <div className="border-t border-border/30" />
             </div>
           </motion.div>
         </div>

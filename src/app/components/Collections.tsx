@@ -50,7 +50,7 @@ export default function Collections() {
 
   return (
     <>
-      <section id="collections" ref={ref} className="px-10 md:px-16 pt-0 pb-8">
+      <section id="collections" ref={ref} className="px-5 md:px-16 pt-0 pb-8">
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -75,7 +75,7 @@ export default function Collections() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="collections-grid grid grid-cols-1 gap-8 md:grid-cols-3">
           {collections.map((col, i) => (
             <motion.div
               key={col.name}
@@ -85,7 +85,7 @@ export default function Collections() {
                 duration: 0.8,
                 delay: i * 0.15,
               }}
-              className="group relative cursor-pointer overflow-hidden gold-glow"
+              className="collection-card group relative cursor-pointer overflow-hidden gold-glow"
               onClick={() => setActive(col)}
               role="button"
               tabIndex={0}
@@ -93,7 +93,7 @@ export default function Collections() {
               {/* Фото */}
               <div className="aspect-[3/4] overflow-hidden bg-surface">
                 <div
-                  className="w-full h-full bg-cover bg-center transition-transform duration-[800ms] ease-out group-hover:scale-105"
+                  className="bg-cover bg-center transition-transform duration-[800ms] ease-out group-hover:scale-105 w-full h-full"
                   style={{ backgroundImage: `url('${col.image}')`, willChange: "transform" }}
                 />
               </div>
@@ -113,7 +113,7 @@ export default function Collections() {
 
               {/* Текст */}
               <h3
-                className="absolute bottom-10 left-8 z-[2] text-[38px] font-[400] italic text-text transition-colors duration-[500ms] group-hover:text-gold"
+                className="collection-name absolute bottom-10 left-8 z-[2] text-[38px] font-[400] italic text-text transition-colors duration-[500ms] group-hover:text-gold"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {col.name}
@@ -143,14 +143,14 @@ export default function Collections() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[1000]"
+            className="fixed inset-0 z-[1000] overflow-y-auto"
             style={{ background: "#0a0906" }}
           >
-            <div className="grid h-screen" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <div className="modal-inner min-h-screen md:grid md:h-screen md:grid-cols-2">
               {/* Кнопка закрыть */}
               <button
                 onClick={() => setActive(null)}
-                className="absolute top-10 right-10 z-[1001] text-[11px] font-[400] uppercase tracking-[0.15em] text-text-muted transition-colors duration-300 hover:text-gold"
+                className="modal-close absolute top-10 right-10 z-[1001] text-[11px] font-[400] uppercase tracking-[0.15em] text-text-muted transition-colors duration-300 hover:text-gold"
                 style={{ fontFamily: "var(--font-body)", background: "none", border: "none" }}
               >
                 ✕ закрыть
@@ -162,7 +162,7 @@ export default function Collections() {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: "-100%", opacity: 0 }}
                 transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] as const }}
-                className="relative flex items-center justify-center"
+                className="modal-left relative flex items-center justify-center"
                 style={{ padding: 80, borderRight: "1px solid #1a1a1a" }}
               >
                 <img
@@ -180,7 +180,7 @@ export default function Collections() {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: "100%", opacity: 0 }}
                 transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] as const, delay: 0.1 }}
-                className="flex flex-col justify-center"
+                className="modal-right flex flex-col justify-center"
                 style={{ padding: "80px 80px 80px 60px" }}
               >
                 {/* Лейбл */}

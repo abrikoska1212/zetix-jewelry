@@ -1,13 +1,15 @@
 "use client";
 
-import { motion, useScroll, useTransform, useMotionTemplate } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionTemplate, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 export default function Navbar() {
   const { scrollY } = useScroll();
   const pathname = usePathname();
   const isAuthorPage = pathname === "/author";
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const bgOpacity = useTransform(scrollY, [0, 120], [0, 0.92]);
   const blurAmount = useTransform(scrollY, [0, 120], [0, 24]);
@@ -23,51 +25,107 @@ export default function Navbar() {
   ];
 
   return (
-    <motion.nav
-      className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-10 md:px-16"
-      style={{
-        height: 72,
-        backgroundColor,
-        backdropFilter,
-        borderBottom: "1px solid rgba(139, 115, 85, 0.12)",
-      }}
-    >
-      <Link href="/" className="relative z-10 flex items-center gap-4">
-        <div className="flex flex-col items-start">
+    <>
+      <motion.nav
+        className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-5 md:px-16"
+        style={{
+          height: 72,
+          backgroundColor,
+          backdropFilter,
+          borderBottom: "1px solid rgba(139, 115, 85, 0.12)",
+        }}
+      >
+        <Link href="/" className="relative z-10 flex items-center gap-4">
+          <div className="flex flex-col items-start">
+            <span
+              className="text-[24px] font-[400] italic text-gold"
+              style={{ fontFamily: "var(--font-display)", letterSpacing: "0.08em" }}
+            >
+              Zetix
+            </span>
+            <span
+              className="text-[8px] font-[300] uppercase text-text-muted"
+              style={{ fontFamily: "var(--font-body)", letterSpacing: "0.3em", marginTop: 2 }}
+            >
+              Jewelry
+            </span>
+          </div>
+          <div className="nav-divider ml-2 hidden h-[28px] w-[1px] bg-border-gold/20 md:block" />
           <span
-            className="text-[24px] font-[400] italic text-gold"
-            style={{ fontFamily: "var(--font-display)", letterSpacing: "0.08em" }}
-          >
-            Zetix
-          </span>
-          <span
-            className="text-[8px] font-[300] uppercase text-text-muted"
-            style={{ fontFamily: "var(--font-body)", letterSpacing: "0.3em", marginTop: 2 }}
-          >
-            Jewelry
-          </span>
-        </div>
-        <div className="ml-2 hidden h-[28px] w-[1px] bg-border-gold/20 md:block" />
-        <span
-          className="hidden text-[10px] font-[300] uppercase tracking-[0.15em] text-text-muted/50 md:block"
-          style={{ fontFamily: "var(--font-body)" }}
-        >
-          Ручная работа
-        </span>
-      </Link>
-
-      <div className="relative z-10 flex items-center gap-10">
-        {navItems.map((item) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            className="link-underline text-[12px] font-[400] uppercase tracking-[0.12em] text-text-muted transition-colors duration-500 hover:text-gold"
+            className="nav-tagline hidden text-[10px] font-[300] uppercase tracking-[0.15em] text-text-muted/50 md:block"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            {item.label}
-          </Link>
-        ))}
-      </div>
-    </motion.nav>
+            Ручная работа
+          </span>
+        </Link>
+
+        {/* Desktop nav */}
+        <div className="desktop-nav relative z-10 hidden items-center gap-10 md:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="link-underline text-[12px] font-[400] uppercase tracking-[0.12em] text-text-muted transition-colors duration-500 hover:text-gold"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* 3-dot menu — mobile only */}
+        <button
+          className={`dot-menu ${menuOpen ? "open" : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Меню"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </motion.nav>
+
+      {/* Mobile nav overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-[94]"
+              style={{ background: "rgba(10, 9, 6, 0.6)" }}
+              onClick={() => setMenuOpen(false)}
+            />
+            {/* Menu */}
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.95 }}
+              transition={{ duration: 0.25, ease: [0.76, 0, 0.24, 1] }}
+              className="mobile-menu"
+            >
+              {navItems.map((item, i) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.2, delay: i * 0.05 }}
+                >
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

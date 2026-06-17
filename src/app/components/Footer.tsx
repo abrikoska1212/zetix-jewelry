@@ -1,14 +1,11 @@
 export default function Footer() {
   return (
-    <footer
-      className="flex flex-col items-center"
-      style={{ padding: "60px 80px 50px" }}
-    >
+    <footer className="flex flex-col items-center px-5 py-12 md:px-16 md:py-16">
       {/* Золотая линия */}
       <div className="mb-14 h-[1px] w-full max-w-[800px] bg-gradient-to-r from-transparent via-border-gold/40 to-transparent" />
 
       {/* Основной контент */}
-      <div className="flex w-full max-w-[800px] items-center justify-between">
+      <div className="footer-inner flex w-full max-w-[800px] items-center justify-between">
         <div className="flex items-center gap-8">
           <span
             className="text-[18px] font-[400] italic text-gold"

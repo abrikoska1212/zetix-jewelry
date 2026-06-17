@@ -82,7 +82,7 @@ export default function Showcase() {
 
   return (
     <>
-      <section ref={ref} className="px-10 md:px-16 py-32 md:py-44">
+      <section ref={ref} className="px-5 py-24 md:px-16 md:py-44">
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -107,7 +107,7 @@ export default function Showcase() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="showcase-grid grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-8">
           {items.map((item, i) => (
             <motion.div
               key={item.id}
@@ -120,13 +120,13 @@ export default function Showcase() {
               {/* Фото + бейдж */}
               <div className="relative mb-6 aspect-square overflow-hidden bg-surface">
                 <div
-                  className="w-full h-full bg-cover bg-center transition-transform duration-[700ms] ease-out group-hover:scale-105"
+                  className="bg-cover bg-center transition-transform duration-[700ms] ease-out group-hover:scale-105 w-full h-full"
                   style={{ backgroundImage: `url('${item.image}')`, willChange: "transform" }}
                 />
 
-                {/* Вертикальный бейдж материала */}
+                {/* Вертикальный бейдж материала — desktop only */}
                 <div
-                  className="absolute left-0 top-1/2 flex items-center gap-2 -translate-y-1/2"
+                  className="material-badge-vertical absolute left-0 top-1/2 hidden items-center gap-2 -translate-y-1/2 md:flex"
                   style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
                 >
                   <div className="w-px h-10 bg-gold" />
@@ -161,6 +161,13 @@ export default function Showcase() {
                 >
                   {item.name}
                 </h3>
+                {/* Материал — только на мобиле */}
+                <span
+                  className="material-text-bottom mt-1 hidden text-[9px] font-[400] uppercase tracking-[0.2em] text-gold"
+                  style={{ fontFamily: "var(--font-body)" }}
+                >
+                  {item.material}
+                </span>
               </div>
             </motion.div>
           ))}
@@ -175,14 +182,14 @@ export default function Showcase() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[1000]"
+            className="fixed inset-0 z-[1000] overflow-y-auto"
             style={{ background: "#0a0906" }}
           >
-            <div className="grid h-screen" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <div className="modal-inner min-h-screen md:grid md:h-screen md:grid-cols-2">
               {/* Кнопка закрыть */}
               <button
                 onClick={() => setSelected(null)}
-                className="absolute top-10 right-10 z-[1001] text-[11px] font-[400] uppercase tracking-[0.15em] text-text-muted transition-colors duration-300 hover:text-gold"
+                className="modal-close absolute top-10 right-10 z-[1001] text-[11px] font-[400] uppercase tracking-[0.15em] text-text-muted transition-colors duration-300 hover:text-gold"
                 style={{ fontFamily: "var(--font-body)", background: "none", border: "none" }}
               >
                 ✕ закрыть
@@ -194,7 +201,7 @@ export default function Showcase() {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: "-100%", opacity: 0 }}
                 transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] as const }}
-                className="relative flex items-center justify-center"
+                className="modal-left relative flex items-center justify-center"
                 style={{ padding: 80, borderRight: "1px solid #1a1a1a" }}
               >
                 <img
@@ -205,7 +212,7 @@ export default function Showcase() {
                   style={{ filter: "drop-shadow(0 0 80px rgba(201, 168, 76, 0.12))" }}
                 />
                 <p
-                  className="absolute bottom-10 left-10 text-[9px] font-[300] uppercase tracking-[0.3em] text-text-muted/40"
+                  className="modal-edition absolute bottom-10 left-10 text-[9px] font-[300] uppercase tracking-[0.3em] text-text-muted/40"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Изделие № {selected.id} / 50
@@ -218,7 +225,7 @@ export default function Showcase() {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: "100%", opacity: 0 }}
                 transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] as const, delay: 0.1 }}
-                className="flex flex-col justify-center"
+                className="modal-right flex flex-col justify-center"
                 style={{ padding: "80px 80px 80px 60px" }}
               >
                 {/* Коллекция */}

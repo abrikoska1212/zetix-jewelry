@@ -11,7 +11,7 @@ export default function About() {
     <section
       id="about"
       ref={ref}
-      className="flex flex-col items-center px-10 py-32 text-center md:px-16 md:py-44"
+      className="flex flex-col items-center px-6 py-24 text-center md:px-16 md:py-44"
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -30,7 +30,7 @@ export default function About() {
         />
 
         <h2
-          className="max-w-[650px] text-[40px] leading-[1.2] font-[400] italic md:text-[54px]"
+          className="max-w-[650px] text-[32px] leading-[1.2] font-[400] italic md:text-[40px] lg:text-[54px]"
           style={{ fontFamily: "var(--font-display)" }}
         >
           «Каждое украшение —

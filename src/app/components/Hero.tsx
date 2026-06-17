@@ -5,18 +5,17 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section
-      className="relative grid items-center overflow-hidden"
+      className="hero-section relative grid items-center overflow-hidden"
       style={{
         height: "100vh",
         gridTemplateColumns: "1fr 1fr",
         padding: "0 80px",
         gap: 80,
-        marginBottom: 0,
         background: "radial-gradient(ellipse 60% 80% at 70% 50%, #1a1408 0%, transparent 60%), radial-gradient(ellipse 40% 60% at 20% 80%, #120e04 0%, transparent 50%), var(--color-bg)",
       }}
     >
       {/* Левая колонка — текст */}
-      <div className="relative z-10">
+      <div className="hero-content relative z-10">
         <div
           className="hero-text"
           style={{ paddingLeft: 40, borderLeft: "1px solid rgba(201, 168, 76, 0.3)" }}
@@ -25,7 +24,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="mb-8 block text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
+            className="hero-subtitle mb-8 block text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Новая коллекция · 2026
@@ -76,7 +75,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.3 }}
-        className="relative flex items-center justify-center"
+        className="hero-image-wrap relative flex items-center justify-center"
         style={{
           height: "80vh",
           background: "var(--color-bg)",

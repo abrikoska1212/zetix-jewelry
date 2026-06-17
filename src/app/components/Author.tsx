@@ -38,7 +38,7 @@ export default function Author() {
     <section id="author" ref={ref}>
       {/* Герой — приветствие */}
       <div
-        className="relative px-10 md:px-16"
+        className="author-hero relative px-5 md:px-16"
         style={{
           paddingTop: 140,
           paddingBottom: 120,
@@ -50,7 +50,7 @@ export default function Author() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1.2 }}
-          className="absolute left-16 top-20 h-[6px] w-[6px] rounded-full bg-gold md:left-24"
+          className="absolute left-5 top-20 h-[6px] w-[6px] rounded-full bg-gold md:left-24"
         />
 
         <motion.div
@@ -105,7 +105,7 @@ export default function Author() {
 
       {/* Чем я занимаюсь */}
       <div
-        className="px-10 md:px-16"
+        className="px-5 md:px-16"
         style={{ paddingTop: 80, paddingBottom: 100 }}
       >
         <div className="mb-10 flex flex-col items-center">
@@ -172,7 +172,7 @@ export default function Author() {
 
       {/* Проекты */}
       <div
-        className="px-10 md:px-16"
+        className="px-5 md:px-16"
         style={{ paddingBottom: 100 }}
       >
         <div className="mb-10 flex flex-col items-center">
@@ -188,7 +188,7 @@ export default function Author() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="author-projects-grid grid grid-cols-1 gap-6 md:grid-cols-2">
           {[
             {
               name: "DISCIPLINE",
@@ -241,7 +241,7 @@ export default function Author() {
 
       {/* Работы на заказ */}
       <div
-        className="px-10 md:px-16"
+        className="px-5 md:px-16"
         style={{ paddingBottom: 100 }}
       >
         <div className="mb-10 flex flex-col items-center">
@@ -258,7 +258,7 @@ export default function Author() {
         </div>
 
         <div
-          className="relative p-12 md:p-14"
+          className="relative p-8 md:p-14"
           style={{
             background: "linear-gradient(135deg, rgba(17, 16, 9, 0.5) 0%, rgba(10, 9, 6, 0.7) 100%)",
             border: "1px solid rgba(139, 115, 85, 0.12)",
@@ -283,7 +283,7 @@ export default function Author() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+          <div className="author-services-grid grid grid-cols-1 gap-3 md:grid-cols-2">
             {services.map((service, i) => (
               <motion.div
                 key={service}
@@ -307,7 +307,7 @@ export default function Author() {
 
       {/* Связаться */}
       <div
-        className="px-10 md:px-16"
+        className="px-5 md:px-16"
         style={{ paddingBottom: 140 }}
       >
         <div className="mb-10 flex flex-col items-center">
@@ -324,7 +324,7 @@ export default function Author() {
         </div>
 
         <div
-          className="relative p-14 md:p-20 text-center"
+          className="relative p-10 text-center md:p-20"
           style={{
             background: "linear-gradient(135deg, rgba(17, 16, 9, 0.5) 0%, rgba(10, 9, 6, 0.7) 100%)",
             border: "1px solid rgba(139, 115, 85, 0.12)",
@@ -339,7 +339,7 @@ export default function Author() {
             </div>
           </div>
           <h4
-            className="mb-6 text-[40px] font-[400] italic text-text md:text-[48px]"
+            className="mb-6 text-[32px] font-[400] italic text-text md:text-[40px] lg:text-[48px]"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Давайте работать вместе
@@ -355,7 +355,7 @@ export default function Author() {
             href="https://t.me/zetixx"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 border border-gold/30 bg-gold/5 px-10 py-5 text-[12px] font-[400] uppercase tracking-[0.25em] text-gold transition-all duration-600 hover:bg-gold hover:text-bg hover:border-gold"
+            className="telegram-btn inline-flex items-center gap-4 border border-gold/30 bg-gold/5 px-10 py-5 text-[12px] font-[400] uppercase tracking-[0.25em] text-gold transition-all duration-600 hover:bg-gold hover:text-bg hover:border-gold"
             style={{ fontFamily: "var(--font-body)" }}
           >
             <span>Написать в Telegram</span>

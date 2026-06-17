@@ -317,7 +317,12 @@ html, body {
     flex-direction: column !important;
     grid-template-columns: unset !important;
     overflow-y: auto !important;
+    overflow-x: hidden !important;
     height: 100dvh !important;
+    scrollbar-width: none !important;
+  }
+  .modal-inner::-webkit-scrollbar {
+    display: none !important;
   }
   .modal-left {
     width: 100% !important;

@@ -182,7 +182,7 @@ export default function Showcase() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="fixed inset-0 z-[1000] overflow-y-auto"
+            className="fixed inset-0 z-[1000] overflow-y-auto overflow-x-hidden"
             style={{ background: "#0a0906" }}
           >
             <div className="modal-inner min-h-screen md:grid md:h-screen md:grid-cols-2">

@@ -41,7 +41,7 @@ export default function FeaturedPiece() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.2 }}
-          className="col-span-2 flex flex-col justify-center px-12 lg:px-16"
+          className="col-span-2 flex flex-col justify-between px-12 py-10 lg:px-16"
         >
           <div className="mb-8 flex items-center gap-4">
             <div className="h-[1px] w-8 bg-gold/30" />

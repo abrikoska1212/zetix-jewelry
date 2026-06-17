@@ -7,160 +7,211 @@ export default function Contact() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  const line = (
+    <div style={{ height: "1px", width: "100%", background: "linear-gradient(90deg, transparent, rgba(139,115,85,0.3), transparent)" }} />
+  );
+
   return (
     <section
       id="contact"
       ref={ref}
-      className="flex flex-col items-center px-5 py-24 md:px-16 md:py-32"
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        background: "#0A0906",
+        padding: "120px 20px 96px",
+      }}
     >
-      {/* Лейбл */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8 }}
-        className="mb-10 flex items-center gap-6"
-      >
-        <div className="label-line h-[1px] w-12 bg-gold/30" />
-        <span
-          className="text-[11px] font-[400] uppercase tracking-[0.3em] text-gold"
-          style={{ fontFamily: "var(--font-body)" }}
+      <div style={{ maxWidth: "960px", margin: "0 auto" }}>
+
+        {/* Лейбл */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8 }}
+          style={{ display: "flex", alignItems: "center", gap: "24px", marginBottom: "48px", justifyContent: "center" }}
         >
-          Связаться
-        </span>
-        <div className="label-line h-[1px] w-12 bg-gold/30" />
-      </motion.div>
-
-      {/* Заголовок */}
-      <motion.h2
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.1 }}
-        className="contact-title mb-6 max-w-[500px] text-center text-[40px] leading-[1.1] font-[400] italic md:text-[56px]"
-        style={{ fontFamily: "var(--font-display)" }}
-      >
-        Есть вопрос?
-        <br />
-        Мы ответим.
-      </motion.h2>
-
-      {/* Тонкая поэтическая строка */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.15 }}
-        className="mb-20 max-w-[400px] text-center text-[14px] font-[300] text-text-muted"
-        style={{ fontFamily: "var(--font-body)" }}
-      >
-        Расскажем об украшении, подберём размер, ответим на любой вопрос.
-      </motion.p>
-
-      {/* Три колонки информации */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="contact-grid mb-20 flex w-full max-w-[900px] flex-col gap-16 md:flex-row md:grid-cols-3"
-      >
-        {/* Адрес */}
-        <div className="flex flex-col items-center text-center">
-          <div className="label-line mb-5 h-[1px] w-8 bg-gold/30" />
-          <span
-            className="mb-4 text-[10px] font-[400] uppercase tracking-[0.25em] text-gold"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Шоурум
+          <div className="label-line" style={{ height: "1px", width: "48px", background: "rgba(201,168,76,0.3)" }} />
+          <span style={{ fontSize: "11px", fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.3em", color: "#C9A84C", fontFamily: "var(--font-body)" }}>
+            Связаться
           </span>
-          <p
-            className="text-[15px] font-[300] leading-[1.9] text-text"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Москва,
-            <br />
-            ул. Кузнецкий Мост, 7
-          </p>
-        </div>
+          <div className="label-line" style={{ height: "1px", width: "48px", background: "rgba(201,168,76,0.3)" }} />
+        </motion.div>
 
-        {/* График */}
-        <div className="flex flex-col items-center text-center">
-          <div className="label-line mb-5 h-[1px] w-8 bg-gold/30" />
-          <span
-            className="mb-4 text-[10px] font-[400] uppercase tracking-[0.25em] text-gold"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Время работы
-          </span>
-          <p
-            className="text-[15px] font-[300] leading-[1.9] text-text"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Пн-Сб
-            <br />
-            11:00–20:00
-          </p>
-        </div>
+        {/* Split layout: left — title + CTA, right — contacts */}
+        <div style={{ display: "flex", gap: "80px", alignItems: "flex-start" }}>
 
-        {/* Соцсети */}
-        <div className="flex flex-col items-center text-center">
-          <div className="label-line mb-5 h-[1px] w-8 bg-gold/30" />
-          <span
-            className="mb-4 text-[10px] font-[400] uppercase tracking-[0.25em] text-gold"
-            style={{ fontFamily: "var(--font-body)" }}
+          {/* LEFT: Заголовок + описание + CTA */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            style={{ flex: "1 1 50%", minWidth: 0 }}
           >
-            Онлайн
-          </span>
-          <div className="flex flex-col items-center gap-3">
-            <a
+            <h2
+              style={{
+                fontSize: "clamp(36px, 5vw, 52px)",
+                lineHeight: 1.1,
+                fontWeight: 400,
+                fontStyle: "italic",
+                color: "#F0EDE8",
+                fontFamily: "var(--font-display)",
+                marginBottom: "28px",
+              }}
+            >
+              Есть вопрос?<br />Мы ответим.
+            </h2>
+
+            <p style={{ fontSize: "14px", fontWeight: 300, lineHeight: 1.8, color: "#6B6560", fontFamily: "var(--font-body)", marginBottom: "48px", maxWidth: "320px" }}>
+              Расскажем об украшении, подберём размер, ответим на любой вопрос.
+            </p>
+
+            {/* Telegram CTA */}
+            <motion.a
               href="https://t.me/zetixx"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[15px] font-[300] text-text transition-colors duration-300 hover:text-gold"
-              style={{ fontFamily: "var(--font-body)" }}
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="telegram-btn"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "16px",
+                border: "1px solid #8B7355",
+                background: "transparent",
+                padding: "18px 40px",
+                fontSize: "11px",
+                fontWeight: 400,
+                textTransform: "uppercase",
+                letterSpacing: "0.2em",
+                color: "#C9A84C",
+                textDecoration: "none",
+                fontFamily: "var(--font-body)",
+                transition: "all 0.5s",
+                boxSizing: "border-box" as const,
+              }}
             >
-              Telegram @zetixx
-            </a>
-            <a
-              href="https://instagram.com/zetixjewelry"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[15px] font-[300] text-text transition-colors duration-300 hover:text-gold"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Instagram @zetixjewelry
-            </a>
-          </div>
+              <span>Написать в Telegram</span>
+              <span style={{ fontSize: "16px", transition: "transform 0.5s" }}>→</span>
+            </motion.a>
+          </motion.div>
+
+          {/* Правая линия-разделитель */}
+          <motion.div
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={isInView ? { opacity: 1, scaleY: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            style={{ width: "1px", background: "rgba(139,115,85,0.2)", alignSelf: "stretch", transformOrigin: "top", flexShrink: 0 }}
+          />
+
+          {/* RIGHT: Контактная информация */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.25 }}
+            style={{ flex: "1 1 50%", minWidth: 0, display: "flex", flexDirection: "column", gap: 0 }}
+          >
+            {/* Адрес */}
+            <div style={{ padding: "0 0 36px" }}>
+              <div style={{ fontSize: "10px", fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.25em", color: "#C9A84C", marginBottom: "14px", fontFamily: "var(--font-body)" }}>
+                Шоурум
+              </div>
+              <div style={{ fontSize: "14px", fontWeight: 300, lineHeight: 1.8, color: "#F0EDE8", fontFamily: "var(--font-body)" }}>
+                Москва
+              </div>
+              <div style={{ fontSize: "14px", fontWeight: 300, lineHeight: 1.8, color: "#F0EDE8", fontFamily: "var(--font-body)" }}>
+                ул. Кузнецкий Мост, 7
+              </div>
+            </div>
+
+            {line}
+
+            {/* График */}
+            <div style={{ padding: "36px 0" }}>
+              <div style={{ fontSize: "10px", fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.25em", color: "#C9A84C", marginBottom: "14px", fontFamily: "var(--font-body)" }}>
+                Время работы
+              </div>
+              <div style={{ fontSize: "14px", fontWeight: 300, lineHeight: 1.8, color: "#F0EDE8", fontFamily: "var(--font-body)" }}>
+                Пн–Сб, 11:00–20:00
+              </div>
+            </div>
+
+            {line}
+
+            {/* Соцсети */}
+            <div style={{ padding: "36px 0 0" }}>
+              <div style={{ fontSize: "10px", fontWeight: 400, textTransform: "uppercase", letterSpacing: "0.25em", color: "#C9A84C", marginBottom: "14px", fontFamily: "var(--font-body)" }}>
+                Онлайн
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                <a
+                  href="https://t.me/zetixx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: "14px", fontWeight: 300, color: "#F0EDE8", textDecoration: "none", fontFamily: "var(--font-body)", transition: "color 0.3s", lineHeight: 1.8 }}
+                >
+                  Telegram @zetixx
+                </a>
+                <a
+                  href="https://instagram.com/zetixjewelry"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ fontSize: "14px", fontWeight: 300, color: "#F0EDE8", textDecoration: "none", fontFamily: "var(--font-body)", transition: "color 0.3s", lineHeight: 1.8 }}
+                >
+                  Instagram @zetixjewelry
+                </a>
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
 
-      {/* CTA — кнопка */}
-      <motion.a
-        href="https://t.me/zetixx"
-        target="_blank"
-        rel="noopener noreferrer"
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.35 }}
-        className="telegram-btn group relative mb-20 flex w-full max-w-[500px] items-center justify-center gap-4 overflow-hidden border border-border-gold bg-transparent py-5 text-[12px] font-[400] uppercase tracking-[0.2em] text-gold transition-all duration-500 hover:border-gold hover:bg-gold hover:text-bg"
-        style={{ fontFamily: "var(--font-body)" }}
-      >
-        <span className="relative z-[1]">Написать в Telegram</span>
-        <span className="relative z-[1] text-[16px] transition-transform duration-500 group-hover:translate-x-2">→</span>
-      </motion.a>
-
-      {/* Декоративный элемент снизу — координаты */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        className="flex flex-col items-center gap-3"
-      >
-        <div className="h-[1px] w-[1px] bg-gold/40" />
-        <span
-          className="text-[9px] font-[300] uppercase tracking-[0.4em] text-text-muted/40"
-          style={{ fontFamily: "var(--font-body)" }}
+        {/* Координаты */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px", marginTop: "80px" }}
         >
-          55.7618° N, 37.6225° E
-        </span>
-      </motion.div>
+          <div style={{ height: "1px", width: "1px", background: "rgba(201,168,76,0.4)" }} />
+          <span style={{ fontSize: "9px", fontWeight: 300, textTransform: "uppercase", letterSpacing: "0.4em", color: "rgba(107,101,96,0.4)", fontFamily: "var(--font-body)" }}>
+            55.7618° N, 37.6225° E
+          </span>
+        </motion.div>
+      </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          #contact > div > div:nth-child(2) {
+            flex-direction: column !important;
+            gap: 48px !important;
+          }
+          #contact > div > div:nth-child(2) > div:first-child {
+            width: 100% !important;
+            flex: unset !important;
+          }
+          #contact > div > div:nth-child(2) > div:first-child h2 {
+            text-align: center !important;
+          }
+          #contact > div > div:nth-child(2) > div:first-child p {
+            text-align: center !important;
+            max-width: 100% !important;
+          }
+          #contact > div > div:nth-child(2) > div:first-child a {
+            display: flex !important;
+            justify-content: center !important;
+            width: 100% !important;
+          }
+          #contact > div > div:nth-child(2) > div:nth-child(2) {
+            display: none !important;
+          }
+          #contact > div > div:nth-child(2) > div:nth-child(3) {
+            width: 100% !important;
+            flex: unset !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

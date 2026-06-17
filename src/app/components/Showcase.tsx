@@ -82,7 +82,7 @@ export default function Showcase() {
 
   return (
     <>
-      <section ref={ref} className="px-5 py-24 md:px-16 md:py-44">
+      <section ref={ref} className="overflow-hidden px-5 py-24 md:px-16 md:py-44">
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}

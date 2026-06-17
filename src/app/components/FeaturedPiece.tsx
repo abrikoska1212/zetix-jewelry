@@ -16,7 +16,7 @@ export default function FeaturedPiece() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1 }}
           className="relative overflow-hidden bg-surface col-span-3"
-          style={{ aspectRatio: "16 / 10" }}
+          style={{ height: "clamp(300px, 40vw, 500px)" }}
         >
           <div
             className="bg-cover bg-center transition-transform duration-[800ms] ease-out hover:scale-105 w-full h-full"

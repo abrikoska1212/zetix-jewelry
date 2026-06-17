@@ -121,6 +121,7 @@ export default function FeaturedPiece() {
           transition={{ duration: 1, delay: 0.2 }}
           className="flex flex-col items-center py-8 text-center"
         >
+          <div className="label-line mb-6 h-[1px] w-6 bg-gold/30" />
           <span
             className="mb-6 text-[9px] font-[400] uppercase tracking-[0.3em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
@@ -136,6 +137,8 @@ export default function FeaturedPiece() {
             <br />
             «Вечер»
           </h2>
+
+          <div className="mb-6 h-[1px] w-12 bg-gradient-to-r from-gold to-transparent" />
 
           <p
             className="mb-8 max-w-[300px] text-[14px] font-[300] leading-[1.9] text-text-muted"

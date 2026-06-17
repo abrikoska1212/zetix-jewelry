@@ -195,8 +195,8 @@ html, body {
   .nav-tagline { display: none !important; }
   .nav-divider { display: none !important; }
 
-  /* Universal section padding */
-  section {
+  /* Universal section padding — mobile only */
+  .section-pad {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
@@ -375,6 +375,11 @@ html, body {
   }
   .footer-inner > div {
     justify-content: center !important;
+  }
+
+  /* Hide decorative lines on mobile */
+  .label-line {
+    display: none !important;
   }
 
   /* About */

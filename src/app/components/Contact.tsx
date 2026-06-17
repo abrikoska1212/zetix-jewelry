@@ -20,12 +20,14 @@ export default function Contact() {
         transition={{ duration: 0.8 }}
         className="mb-10 flex items-center gap-6"
       >
+        <div className="label-line h-[1px] w-12 bg-gold/30" />
         <span
           className="text-[11px] font-[400] uppercase tracking-[0.3em] text-gold"
           style={{ fontFamily: "var(--font-body)" }}
         >
           Связаться
         </span>
+        <div className="label-line h-[1px] w-12 bg-gold/30" />
       </motion.div>
 
       {/* Заголовок */}
@@ -61,6 +63,7 @@ export default function Contact() {
       >
         {/* Адрес */}
         <div className="flex flex-col items-center text-center">
+          <div className="label-line mb-5 h-[1px] w-8 bg-gold/30" />
           <span
             className="mb-4 text-[10px] font-[400] uppercase tracking-[0.25em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
@@ -79,6 +82,7 @@ export default function Contact() {
 
         {/* График */}
         <div className="flex flex-col items-center text-center">
+          <div className="label-line mb-5 h-[1px] w-8 bg-gold/30" />
           <span
             className="mb-4 text-[10px] font-[400] uppercase tracking-[0.25em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}
@@ -97,6 +101,7 @@ export default function Contact() {
 
         {/* Соцсети */}
         <div className="flex flex-col items-center text-center">
+          <div className="label-line mb-5 h-[1px] w-8 bg-gold/30" />
           <span
             className="mb-4 text-[10px] font-[400] uppercase tracking-[0.25em] text-gold"
             style={{ fontFamily: "var(--font-body)" }}

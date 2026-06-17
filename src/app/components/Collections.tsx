@@ -91,7 +91,7 @@ export default function Collections() {
               tabIndex={0}
             >
               {/* Фото */}
-              <div className="overflow-hidden bg-surface w-full h-full">
+              <div className="aspect-[3/4] overflow-hidden bg-surface">
                 <div
                   className="bg-cover bg-center transition-transform duration-[800ms] ease-out group-hover:scale-105 w-full h-full"
                   style={{ backgroundImage: `url('${col.image}')`, willChange: "transform" }}

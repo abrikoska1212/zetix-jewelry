@@ -112,34 +112,21 @@ export default function FeaturedPiece() {
             className="bg-cover bg-center w-full h-full"
             style={{ backgroundImage: "url('/images/featured-ring.jpg')" }}
           />
-          {/* Бейдж */}
-          <div className="absolute top-4 left-4 flex items-center gap-2">
-            <div className="h-[1px] w-6 bg-gold/50" />
-            <span
-              className="text-[8px] font-[400] uppercase tracking-[0.25em] text-gold/70"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              № 01 / 50
-            </span>
-          </div>
         </motion.div>
 
-        {/* Текст */}
+        {/* Текст — по центру */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 1, delay: 0.2 }}
-          className="py-8"
+          className="flex flex-col items-center py-8 text-center"
         >
-          <div className="mb-6 flex items-center gap-3">
-            <div className="h-[1px] w-6 bg-gold/30" />
-            <span
-              className="text-[9px] font-[400] uppercase tracking-[0.3em] text-gold"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Выбор мастера
-            </span>
-          </div>
+          <span
+            className="mb-6 text-[9px] font-[400] uppercase tracking-[0.3em] text-gold"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Выбор мастера
+          </span>
 
           <h2
             className="mb-6 text-[36px] leading-[1.05] font-[400]"
@@ -150,10 +137,8 @@ export default function FeaturedPiece() {
             «Вечер»
           </h2>
 
-          <div className="mb-6 h-[1px] w-12 bg-gradient-to-r from-gold to-transparent" />
-
           <p
-            className="mb-8 text-[14px] font-[300] leading-[1.9] text-text-muted"
+            className="mb-8 max-w-[300px] text-[14px] font-[300] leading-[1.9] text-text-muted"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Жёлтое золото 585° пробы. Бриллиант

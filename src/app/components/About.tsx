@@ -21,7 +21,7 @@ export default function About() {
       >
         {/* Линия сверху */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2"
+          className="about-line absolute top-0 left-1/2 -translate-x-1/2"
           style={{
             width: 1,
             height: 70,
@@ -40,7 +40,7 @@ export default function About() {
 
         {/* Линия снизу */}
         <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2"
+          className="about-line absolute bottom-0 left-1/2 -translate-x-1/2"
           style={{
             width: 1,
             height: 70,

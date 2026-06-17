@@ -58,14 +58,12 @@ export default function Collections() {
           className="mb-20 flex flex-col items-center"
         >
           <div className="mb-8 flex items-center gap-6">
-            <div className="h-[1px] w-12 bg-gold/30" />
             <span
               className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Наши
             </span>
-            <div className="h-[1px] w-12 bg-gold/30" />
           </div>
           <h2
             className="text-[42px] font-[400] italic text-text md:text-[52px]"
@@ -91,7 +89,7 @@ export default function Collections() {
               tabIndex={0}
             >
               {/* Фото */}
-              <div className="aspect-[3/4] overflow-hidden bg-surface">
+              <div className="overflow-hidden bg-surface w-full h-full">
                 <div
                   className="bg-cover bg-center transition-transform duration-[800ms] ease-out group-hover:scale-105 w-full h-full"
                   style={{ backgroundImage: `url('${col.image}')`, willChange: "transform" }}

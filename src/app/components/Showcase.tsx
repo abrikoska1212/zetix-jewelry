@@ -90,14 +90,12 @@ export default function Showcase() {
           className="mb-20 flex flex-col items-center"
         >
           <div className="mb-8 flex items-center gap-6">
-            <div className="h-[1px] w-12 bg-gold/30" />
             <span
               className="text-[10px] font-[400] uppercase tracking-[0.35em] text-gold"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Коллекция
             </span>
-            <div className="h-[1px] w-12 bg-gold/30" />
           </div>
           <h2
             className="text-[42px] font-[400] italic text-text md:text-[52px]"

@@ -277,8 +277,9 @@ html, body {
   }
   .collections-grid .collection-card {
     width: 100% !important;
-    height: 60vw !important;
-    min-height: 240px !important;
+    aspect-ratio: 3 / 4 !important;
+    height: auto !important;
+    min-height: unset !important;
   }
   .collections-grid .collection-name {
     font-size: 32px !important;
@@ -374,6 +375,11 @@ html, body {
   }
   .footer-inner > div {
     justify-content: center !important;
+  }
+
+  /* About */
+  .about-line {
+    display: none !important;
   }
 
   /* Author page */
